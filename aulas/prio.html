@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atividades do dia a dia</title>
+
+</head>
+<body>
+    <h1>atividades do dia a dia</h1>
+    <input type="text" name="tarefas" id="tarefa" placeholder="Digite a primeira tarefa">
+    <input type="button" value="Adicionar" onclick="adicionar();">
+    <ul id="coisas">
+    </ul>
+
+    <script>
+        function adicionar(){
+            console.log("Gerar Lista")
+            document.getElementById('coisas').innerHTML 
+            let tag_ul = document.getElementById("coisas")
+            console.log(tag_ul)
+            var tarefa = document.getElementById ('tarefa')
+
+            let tag_li = document.createElement('li')
+            tag_li.innerHTML = (`${tarefa.value}`)
+            tag_ul.appendChild(tag_li) 
+           }
+    </script>
+
+</body>
+</html>
