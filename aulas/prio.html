@@ -1,31 +1,55 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>atividades do dia a dia</title>
+ <html lang="pt-br">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>atividades do dia a dia</title>
+ </head>
+ <body>
+     <h1>Lista do dia a dia</h1>
+     <input type="text" id="tarefa" name="tarefa">
+     <input type="button" id="bottom" name="bottom" value="Adicionar" onclick="addtarefa()">
+     <ul id="lista"></ul>
+     <p id="ta"></p>
+     <ul id="lista2"></ul>
+     <script>
+         function addtarefa(){
+            var timestamp = Date.now()
+             var task = document.getElementById("tarefa")
+             var list = document.getElementById("lista")
+             var tagli = document.createElement('li')
+             
+             tagli.setAttribute("id", timestamp);
+             tagli.innerHTML = (`<input type="checkbox" onclick="tarefaConcluida(${timestamp})"/>${task.value}`)
+             list.appendChild(tagli)
+         }
 
-</head>
-<body>
-    <h1>atividades do dia a dia</h1>
-    <input type="text" name="tarefas" id="tarefa" placeholder="Digite a primeira tarefa">
-    <input type="button" value="Adicionar" onclick="adicionar();">
-    <ul id="coisas">
-    </ul>
+         function tarefaConcluida(idElementoConcluido){
 
-    <script>
-        function adicionar(){
-            console.log("Gerar Lista")
-            document.getElementById('coisas').innerHTML 
-            let tag_ul = document.getElementById("coisas")
-            console.log(tag_ul)
-            var tarefa = document.getElementById ('tarefa')
+            console.log(idElementoConcluido);
+            elementoConcluido = document.getElementById(idElementoConcluido);
 
-            let tag_li = document.createElement('li')
-            tag_li.innerHTML = (`${tarefa.value}`)
-            tag_ul.appendChild(tag_li) 
-           }
-    </script>
+            var input_elemento = elementoConcluido.querySelector("input");
 
+            console.log(input_elemento)
+            if (input_elemento.checked==true){
+                var tas = document.getElementById("ta")
+                var ul2 = document.getElementById("lista2")
+                var tagli2 = document.createElement("li")
+                tagli2.setAttribute("id", `tarefa_concluida_${idElementoConcluido}`);
+                tas.innerHTML = ("tarefas concluidas")
+                tagli2.innerHTML = (`${elementoConcluido.innerText}`)
+                ul2.appendChild(tagli2)
+                console.log(ul2)
+                console.log(tagli2)
+            }else{
+                getSelection.remove(ul2)
+
+            }
+
+    
+            
+         }
+     </script>
 </body>
 </html>
