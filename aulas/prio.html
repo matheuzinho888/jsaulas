@@ -8,46 +8,63 @@
  <body>
      <h1>tarefas do dia a dia</h1>
      <input type="text" id="tarefa" name="tarefa">
+     <button onclick="limparBarraPesquisa()">Limpar</button>
      <input type="button" id="bottom" name="bottom" value="Adicionar" onclick="addtarefa()">
-     <ul id="lista"></ul>
+     <ul id="lista" style="list-style: none;"></ul>
      <p id="ta"></p>
-     <ul id="lista2"></ul>
+     <ul id="lista2" style="list-style: none;"></ul>
      <script>
          function addtarefa(){
-            var timestamp = Date.now()
-             var task = document.getElementById("tarefa")
-             var list = document.getElementById("lista")
-             var tagli = document.createElement('li')
-             
+             var timestamp = Date.now()
+             var task = document.getElementById("tarefa");
+             var list = document.getElementById("lista");
+             var tagli = document.createElement('li');
              tagli.setAttribute("id", timestamp);
-             tagli.innerHTML = (`<input type="checkbox" onclick="tarefaConcluida(${timestamp})"/>${task.value}`)
-             list.appendChild(tagli)
-         }
-
+             tagli.innerHTML = `                                
+                                <input type="checkbox" onclick="tarefaConcluida(${timestamp})">
+                                <span>${task.value}<span>
+                                <input type="button" value="Excluir" onclick="excluir(${timestamp})">
+                                <input type="button" value="editar" onclick="editar(${timestamp})">
+                                `;
+             list.appendChild(tagli);
+         }           
          function tarefaConcluida(idElementoConcluido){
-
-            console.log(idElementoConcluido);
             elementoConcluido = document.getElementById(idElementoConcluido);
+            var input_elemento = elementoConcluido.querySelector("input"); 
 
-            var input_elemento = elementoConcluido.querySelector("input");
-
-            console.log(input_elemento)
             if (input_elemento.checked==true){
-                var tas = document.getElementById("ta")
-                var ul2 = document.getElementById("lista2")
-                var tagli2 = document.createElement("li")
+                var li_pai = input_elemento.parentElement;
+                li_pai.style.textDecoration="line-through"
+                li_pai.style.color="green"
+                var tas = document.getElementById("ta");
+                var ul2 = document.getElementById("lista2");
+                var tagli2 = document.createElement("li");
                 tagli2.setAttribute("id", `tarefa_concluida_${idElementoConcluido}`);
-                tas.innerHTML = ("tarefas concluidas")
-                tagli2.innerHTML = (`${elementoConcluido.innerText}`)
-                ul2.appendChild(tagli2)
+                tas.innerHTML = ("tarefas concluidas");
+                tagli2.innerHTML = (`${elementoConcluido.innerText}`);
+                ul2.appendChild(tagli2);
             }else{
-                
-
-            }
-
-    
+                ele = document.getElementById(`tarefa_concluida_${idElementoConcluido}`); 
+                ele.remove();
+                var li_pai = input_elemento.parentElement;
+                li_pai.style.textDecoration="none";
+                li_pai.style.color="black"
+             }
+        }
+        function excluir(idElemento){
+                 var exclui = document.getElementById(idElemento);
+                 exclui.style.justifyItems="left"
+                 exclui.remove()   
+                 ele2 = document.getElementById(`tarefa_concluida_${idElemento}`); 
+                ele2.remove()
+                               
+        }        
+        function limparBarraPesquisa() {
+            document.getElementById('tarefa').value = "";
+        }
+        function editar(){
             
-         }
+        }
      </script>
 </body>
 </html>
