@@ -1,0 +1,45 @@
+html{
+    
+}
+.cabecario{
+    display: flex;
+    background-color: #0b1e35;
+    flex-wrap: nowrap;
+    height: 137px;
+    align-items: center;
+    justify-content: space-between;
+}body, ul, li, p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 1.2rem;
+    font-family: Arial, sans-serif;
+}
+a{
+    text-decoration: none;
+}
+.menu {
+    display: flex;
+    align-items: center;
+}
+.menu ul{
+    display: flex;
+}
+
+.menu li {
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+}
+
+.menu li a {
+    color: white;
+    display: block;
+    padding: 10px;
+}
+
+@media screen {
+    
+}
