@@ -11,27 +11,57 @@
         <a href="projeto_jogosLigth.html"><img src="imgs_projeto/9.png" alt="logotipo playlog" class="logo"></a>
         <nav>
             <ul>
-                <li><a href="#" onclick="mostrarConteudo('conteudo3')">Inicio</a></li>
-                <li><a href="#" onclick="mostrarConteudo('conteudo3')">Catalogo</a></li>
-                <li><a href="#" onclick="mostrarConteudo('conteudo3')">Criar post</a></li>
+                <li><a href="#" onclick="mostrarConteudo('conteudo')">Inicio</a></li>
+                <li><a href="#" onclick="mostrarConteudo('conteudo1')">Catalogo</a></li>
+                <li><a href="#" onclick="mostrarConteudo('conteudo2')">Criar post</a></li>
                 <li><a href="#" onclick="mostrarConteudo('conteudo3')">(vazio)</a></li>
             </ul>
+            <div class="jj">
             <a href="#"><img src="imgs_projeto/git_white.png" alt="GitHub" class="github-icon"></a>
             <br>
              <button onclick="toggleDarkMode()"><img src="../projeto/imgs_projeto/new-removebg-preview.png" alt="mudar cor icon" class="mudar-cor"><p class="modi">mudar tema</p></button>
-                <h1>Bem-vindo</h1>
+            </div>   
+             <h1>Bem-vindo</h1>
                 <p>Esse é o conteúdo do site.</p>
         </nav>
     </aside>
 
-    <main class="conteudo">
-        <h1>Bem-vindo à biblioteca de jogos</h1>
-        <p>Conteúdo principal aqui.</p>
-    </main>
+<main class="conteudo">
+    <div id="conteudo" class="secao" style="display: none;">
+    <h2>Conteúdo da Página 1</h2>
+    <p>Texto do PROVISÓRIO 1</p>
+  </div>
+
+  <div id="conteudo1" class="secao" style="display: none;">
+    <h2>Conteúdo da Página 1</h2>
+    <p>Texto do PROVISÓRIO 1</p>
+  </div>
+
+  <div id="conteudo2" class="secao" style="display: none;">
+    <h2>Conteúdo da Página 2</h2>
+    <p>Texto do PROVISÓRIO 2</p>
+  </div>
+
+  <div id="conteudo3" class="secao" style="display: none;">
+    <h2>Conteúdo da Página 3</h2>
+    <p>Texto do PROVISÓRIO 3</p>
+  </div>
+
+</main>
+
     <script>
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
     } 
+    function mostrarConteudo(id) {
+    const secoes = document.querySelectorAll('.secao');
+    
+    secoes.forEach(secao => {
+      secao.style.display = 'none'; 
+    });
+
+    document.getElementById(id).style.display = 'block'; 
+  }
     </script>
 </body>
 </html>

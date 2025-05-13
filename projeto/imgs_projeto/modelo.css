@@ -24,6 +24,9 @@ button {
 .modi{
     color: white;
 }
+.jj{
+    padding-left: 50px;
+}
 .menu-vertical {
   width: 220px;
   background-color: black;
@@ -75,7 +78,7 @@ button {
     margin-top: 40px;
 }
 .mudar-cor{
-         width: 80px;
+         width: 71px;
     margin-top: 20px;
 }
 .conteudo {
