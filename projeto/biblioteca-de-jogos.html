@@ -19,7 +19,7 @@
             <div class="jj">
             <a href="#"><img src="imgs_projeto/git_white.png" alt="GitHub" class="github-icon"></a>
             <br>
-             <button onclick="toggleDarkMode()"><img src="../projeto/imgs_projeto/new-removebg-preview.png" alt="mudar cor icon" class="mudar-cor"><p class="modi">mudar tema</p></button>
+            <button onclick="toggleDarkMode()"><img id="icone-tema" src="../projeto/imgs_projeto/new-removebg-preview.png" alt="mudar cor icon" class="mudar-cor"><p class="modi">mudar tema</p></button>
             </div>   
              <h1>Bem-vindo</h1>
                 <p>Esse é o conteúdo do site.</p>
@@ -27,8 +27,8 @@
     </aside>
 
 <main class="conteudo">
-    <div id="conteudo" class="secao" style="display: none;">
-    <h2>Conteúdo da Página 1</h2>
+    <div id="conteudo" class="secao">
+    <h1>conteudo inicial</h1>
     <p>Texto do PROVISÓRIO 1</p>
   </div>
 
@@ -50,9 +50,19 @@
 </main>
 
     <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-    } 
+   function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+
+  const icone = document.getElementById("icone-tema");
+
+    if (document.body.classList.contains("dark-mode")) {
+    icone.src = "../projeto/imgs_projeto/lua.png";
+     }
+    else {
+    icone.src = "../projeto/imgs_projeto/new-removebg-preview.png";
+  }
+}
+
     function mostrarConteudo(id) {
     const secoes = document.querySelectorAll('.secao');
     
