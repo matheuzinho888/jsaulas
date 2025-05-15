@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Estrelas</title>
+  <style>
+    .estrela {
+      font-size: 30px;
+      cursor: pointer;
+      color: gray;
+    }
+
+    .estrela.selecionada {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+
+  <span class="estrela">&#9733;</span>
+  <span class="estrela">&#9733;</span>
+  <span class="estrela">&#9733;</span>
+  <span class="estrela">&#9733;</span>
+  <span class="estrela">&#9733;</span>
+
+  <script>
+    function avaliar(event) {
+      console.log("Clicou na estrela:", event.target);
+
+      // Exemplo: destacar até a estrela clicada
+      var estrelas = document.getElementsByClassName("estrela");
+      var clicada = event.target;
+      var indexClicada = -1;
+
+      // Descobrir qual estrela foi clicada
+      for (var i = 0; i < estrelas.length; i++) {
+        estrelas[i].classList.remove("selecionada");
+        if (estrelas[i] === clicada) {
+          indexClicada = i;
+        }
+      }
+
+      // Selecionar até a clicada
+      for (var i = 0; i <= indexClicada; i++) {
+        estrelas[i].classList.add("selecionada");
+      }
+    }
+
+    // Adicionar o listener com for tradicional
+    var estrelas = document.getElementsByClassName("estrela");
+
+    for (var i = 0; i < estrelas.length; i++) {
+      estrelas[i].addEventListener("click", avaliar);
+    }
+  </script>
+
+</body>
+</html>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <aside class="menu-vertical">
-        <a href="projeto_jogosLigth.html"><img src="imgs_projeto/9.png" alt="logotipo playlog" class="logo"></a>
+        <a href="biblioteca-de-jogos.html"><img src="imgs_projeto/9.png" alt="logotipo playlog" class="logo"></a>
         <nav>
             <ul>
                 <li><a href="#" onclick="mostrarConteudo('conteudo')">Inicio</a></li>
@@ -38,8 +38,31 @@
   </div>
 
   <div id="conteudo2" class="secao" style="display: none;">
-    <h2>Conteúdo da Página 2</h2>
-    <p>Texto do PROVISÓRIO 2</p>
+    <h2>Criar postagem</h2>
+    <form  class="menu-bloco">
+      <label for="nome_jogo">nome do jogo:</label>
+      <input type="text" name="nome_jogo" id="nome_jogo">
+      <br>
+      <label for="img_jogo">adicionar capa do jogo:</label>
+      <input type="url"  name="img_jogo" id="img_jogo">
+      <br>
+      <label for="avatar">Selecione a imagem de capa:</label>
+      <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />      
+      <br>
+      <label>AVALIAÇÃO</label>
+      <div class="classificacao">
+        <span class="estrela">&#9733;</span>
+        <span class="estrela">&#9733;</span>
+        <span class="estrela">&#9733;</span>
+        <span class="estrela">&#9733;</span>
+        <span class="estrela">&#9733;</span>
+      </div>      
+   MENU
+            <ul class="submenu">
+            <li><a href="#">A</a></li>
+            <li><a href="#">B</a></li>
+            <li><a href="#">C</a></li>
+        </ul>
   </div>
 
   <div id="conteudo3" class="secao" style="display: none;">
@@ -49,21 +72,21 @@
 
 </main>
 
-    <script>
+  <script>
    function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
+    document.body.classList.toggle("dark-mode");
 
-  const icone = document.getElementById("icone-tema");
+    const icone = document.getElementById("icone-tema");
 
-    if (document.body.classList.contains("dark-mode")) {
-    icone.src = "../projeto/imgs_projeto/lua.png";
-     }
-    else {
-    icone.src = "../projeto/imgs_projeto/new-removebg-preview.png";
+      if (document.body.classList.contains("dark-mode")) {
+      icone.src = "../projeto/imgs_projeto/lua.png";
+      }
+      else {
+      icone.src = "../projeto/imgs_projeto/new-removebg-preview.png";
+    }
   }
-}
 
-    function mostrarConteudo(id) {
+  function mostrarConteudo(id) {
     const secoes = document.querySelectorAll('.secao');
     
     secoes.forEach(secao => {
@@ -72,6 +95,36 @@
 
     document.getElementById(id).style.display = 'block'; 
   }
+
+    function avaliar(event) {
+      console.log("Clicou na estrela:", event.target);
+
+      // Exemplo: destacar até a estrela clicada
+      var estrelas = document.getElementsByClassName("estrela");
+      var clicada = event.target;
+      var indexClicada = -1;
+
+      // Descobrir qual estrela foi clicada
+      for (var i = 0; i < estrelas.length; i++) {
+        estrelas[i].classList.remove("selecionada");
+        if (estrelas[i] === clicada) {
+          indexClicada = i;
+        }
+      }
+
+      // Selecionar até a clicada
+      for (var i = 0; i <= indexClicada; i++) {
+        estrelas[i].classList.add("selecionada");
+      }
+    }
+
+    // Adicionar o listener com for tradicional
+    var estrelas = document.getElementsByClassName("estrela");
+
+    for (var i = 0; i < estrelas.length; i++) {
+      estrelas[i].addEventListener("click", avaliar);
+    }
+
     </script>
 </body>
 </html>
