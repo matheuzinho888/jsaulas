@@ -74,22 +74,10 @@
         <label for="nome_jogo">Nome do jogo:</label>
         <input type="text" name="nome_jogo" id="nome_jogo" required />
         <br />
-<label for="selecao_imagem">Escolha o método para adicionar a capa do jogo:</label>
-<select id="selecao_imagem" class="form-select" onchange="alternarMetodoImagem()" style="width: 200px;">
-  <option value="arquivo">Enviar arquivo</option>
-  <option value="url">Inserir URL</option>
-</select>
-
-
-<div id="campo_arquivo">
-  <label for="avatar">Capa do jogo:</label>
-  <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
-</div>
-
-<div id="campo_url" style="display: none;">
-  <label for="img_jogo">URL da imagem de capa:</label>
-  <input type="url" name="img_jogo" id="img_jogo" placeholder="https://exemplo.com/imagem.jpg" />
-</div>
+        <div id="campo_url">
+          <label for="img_jogo">URL da imagem de capa:</label>
+          <input type="url" name="img_jogo" id="img_jogo" placeholder="https://exemplo.com/imagem.jpg" />
+        </div>
 
 
         <label>AVALIAÇÃO:</label>
@@ -112,21 +100,40 @@
     </div>
 
     <div id="RECOMENDADOS" class="secao" style="display: none;">
-      <h2>Recomendações</h2>
-      <div style="display: flex;">
-        <div style="width: 30%; text-align: center; margin-right: 2%;">
-          <img src="./imgs_projeto/manhunt.jpg" style="width: 100%;" alt="Capa Manhunt 2" />
-          <p>MANHUNT 2</p>
-        </div>
-        <div style="width: 30%; text-align: center; margin-right: 2%;">
-          <img src="./imgs_projeto/black.jfif" style="width: 100%;" alt="Capa Black" />
-          <p>BLACK</p>
-        </div>
-        <div style="width: 30%; text-align: center;">
-          <img src="./imgs_projeto/castlevania.jpg" style="width: 100%;" alt="Capa Castlevania" />
-          <p>CASTLEVANIA</p>
-        </div>
-      </div>
+    <div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <img src="./imgs_projeto/ben10.jpg" alt="yyy" style="width: 100%;">
+      <p>BEN10</p>
+    </div>
+    <div class="col">
+     <img src="./imgs_projeto/black.jpg" alt="yyy" style="width: 100%;">
+     <p>BLACK</p>
+    </div>
+    <div class="col">
+      <img src="./imgs_projeto/50cent.png" alt="yyy" style="width: 89%;">
+      <p>50CENT</p>
+    </div>
+  </div>
+</div>
+<br>
+
+
+ <div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <img src="./imgs_projeto/chaves.png" alt="yyy" style="width: 100%;">
+      <p>CHAVES KART</p>
+    </div>
+    <div class="col">
+     <img src="./imgs_projeto/farcry3.png" alt="yyy" style="width: 88%;">
+     <p>FAR CRY 3</p>
+    </div>
+    <div class="col">
+      <img src="./imgs_projeto/guitarhero.png" alt="yyy" style="width: 90%;">
+      GUITAR HERO 3
+    </div>
+  </div>
     </div>
 
     <div id="SOBRE" class="secao" style="display: none;">
@@ -153,25 +160,9 @@
   </main>
 
   <script>
-
-    function alternarMetodoImagem() {
-  const selecao = document.getElementById('selecao_imagem').value;
-  const campoArquivo = document.getElementById('campo_arquivo');
-  const campoUrl = document.getElementById('campo_url');
-
-  if (selecao === 'arquivo') {
-    campoArquivo.style.display = 'block';
-    campoUrl.style.display = 'none';
-  } else {
-    campoArquivo.style.display = 'none';
-    campoUrl.style.display = 'block';
-  }
-}
-
-
     function criarpost() {
-  let nomejogo = document.getElementById('nome_jogo');
-  let imgjogo = document.getElementById('img_jogo');
+     let nomejogo = document.getElementById('nome_jogo');
+     let imgjogo = document.getElementById('img_jogo');
 
   if (!nomejogo.value || !imgjogo.value) {
     alert("Por favor, preencha os campos de nome e imagem do jogo!");
