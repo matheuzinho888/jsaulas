@@ -8,6 +8,7 @@ body {
   background-color: white;
   color: black;
   transition: 0.3s;
+  font-family: 'Inter', sans-serif;
 }
 
 body.dark-mode {
@@ -24,19 +25,23 @@ button {
 .modi{
     color: white;
 }
+
 .jj{
-    padding-left: 50px;
+   display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    
 }
 .menu-vertical {
-  width: 220px;
-  background-color: black;
-  color: white;
-  height: 100vh;
   position: fixed;
-  padding: 20px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 215px;
+  background-color: #222;
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 1000;
 }
 
 .menu-vertical .logo {
@@ -66,8 +71,13 @@ button {
 
 .menu-vertical nav ul li a:hover {
   background-color: #8783833d;
-  border-left: 4px solid #d6d6f1;
+  border-left: 4px solid white;
 }
+.menu-vertical .submenu-toggle:hover {
+  background-color: #8783833d;
+  border-left: 4px solid white;
+}
+
 
 .menu-vertical nav ul li img {
   width: 30px;
@@ -76,11 +86,10 @@ button {
 .github-icon {
      width: 70px;
     margin-top: 40px;
-    padding-left: 15px;
 }
 .mudar-cor{
-         width: 71px;
-    margin-top: 20px;
+         width: 75px;
+    
 }
 .conteudo {
   margin-left: 220px;
@@ -90,14 +99,15 @@ button {
 
 
 .estrela {
-      font-size: 30px;
-      cursor: pointer;
-      color: gray;
+  font-size: 1.5rem;
+  color: #ccc;
+  cursor: pointer;
 }
 
 .estrela.selecionada {
-      color: gold;
+  color: #ffc107;
 }
+
 
 .col img:hover{
   transition: all 0.3s ease;
@@ -105,4 +115,63 @@ button {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.88);
 }
 
+.menu-vertical ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.menu-vertical li {
+  margin-bottom: 15px;
+}
+
+
+
+.menu-vertical a,
+.menu-vertical button {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  background: none;
+  text-align: left;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submenu {
+  display: none;
+  list-style: none;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.submenu li a {
+  padding: 8px 10px;
+  display: block;
+  font-size: 14px;
+}
+
+.submenu.show {
+  display: block;
+}
+a, button, .card, .submenu {
+  transition: all 0.5s ease-in-out;
+}
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.btn-primary {
+  background-color: blue;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: #355ee6;
+}
 

@@ -5,33 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../projeto/imgs_projeto/modelo.css" />
   <title>Biblioteca de Jogos</title>
 </head>
 
 <body>
-  <aside class="menu-vertical">
-    <a href="biblioteca-de-jogos.html"><img src="./imgs_projeto/10.png" alt="logotipo da biblioteca" class="logo" /></a>
-    <nav>
-      <ul>
-        <li><a href="#" onclick="mostrarConteudo('conteudo')"><i class="bi bi-house"></i> INÍCIO</a></li>
-        <li><a href="#" onclick="mostrarConteudo('CATÁLOGO')"><i class="bi bi-folder2"></i> CATÁLOGO</a></li>
-        <li><a href="#" onclick="mostrarConteudo('Criar')"><i class="bi bi-folder-symlink"></i> CRIAR POST</a></li>
-        <li><a href="#" onclick="mostrarConteudo('RECOMENDADOS')"><i class="bi bi-chat-square-text"></i> RECOMENDADOS</a></li>
-        <li><a href="#" onclick="mostrarConteudo('SOBRE')"><i class="bi bi-info-circle"></i> SOBRE</a></li>
-      </ul>
-      <div class="jj">
-        <a href="#" onclick="mostrarConteudo('GITHUB')"><img src="imgs_projeto/git_white.png" alt="GitHub" class="github-icon" /></a>
-        <br />
-        <button onclick="toggleDarkMode()">
-          <img id="icone-tema" src="../projeto/imgs_projeto/new-removebg-preview.png" alt="mudar tema" class="mudar-cor" />
-          <p class="modi">mudar tema</p>
-        </button>
-      </div>
-      <h1>Bem-vindo</h1>
-      <p>Esse é o conteúdo do site.</p>
-    </nav>
-  </aside>
+<aside class="menu-vertical">
+  <a href="biblioteca-de-jogos.html">
+    <img src="./imgs_projeto/10.png" alt="logotipo da biblioteca" class="logo" />
+  </a>
+  <nav>
+    <ul>
+      <li><a href="#" onclick="mostrarConteudo('conteudo')"><i class="bi bi-house"></i> INÍCIO</a></li>
+      <li><a href="#" onclick="mostrarConteudo('Criar')"><i class="bi bi-folder-symlink"></i> CRIAR POST</a></li>
+
+      <li class="has-submenu">
+        <button class="submenu-toggle" id="sub"><i class="bi bi-folder2"></i> CATÁLOGO</button>
+        <ul class="submenu">
+          <li><a href="#" onclick="mostrarConteudo('CRIADOS')"><i class="bi bi-bookmarks"></i> POSTS CRIADOS</a></li>
+          <li><a href="#" onclick="mostrarConteudo('RECOMENDADOS')"><i class="bi bi-bookmark-star"></i> RECOMENDADOS</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#" onclick="mostrarConteudo('SOBRE')"><i class="bi bi-info-circle"></i> SOBRE</a></li>
+    </ul>
+    
+    <div class="jj mt-3">
+      <a href="#" onclick="mostrarConteudo('GITHUB')" aria-label="Ver GitHub dos desenvolvedores">
+        <i class="bi bi-github" style="color: white; font-size: 400%;"></i>
+      </a>
+      <br />
+      <button onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="background: none; border: none;">
+        <i class="bi bi-brightness-low" style="color: white; font-size: 410%;"></i>
+      </button>
+    </div>
+
+    <h1 style="color: white;">B</h1>
+    <p style="color: white;">E</p>
+  </nav>
+</aside>
+
+
+ 
+
 
   <main class="conteudo">
     <div id="conteudo" class="secao">
@@ -58,9 +75,9 @@
       </div>
     </div>
 
-<div id="CATÁLOGO" class="secao" style="display: none;">
+<div id="catalogo" class="secao" style="display: none;">
   <h2>Catálogo de Jogos</h2>
-  <div id="catalogo-lista" class="row row-cols-1 row-cols-md-3 g-4">
+  <div id="catalogo-lista" class="row row-cols-1 row-cols-md-3 g-4">  
   </div>
 </div>
 
@@ -68,17 +85,20 @@
 
     </div>
 
-    <div id="Criar" class="secao" style="display: none;">
-      <h2>Criar postagem</h2>
-      <form class="menu-bloco">
-        <label for="nome_jogo">Nome do jogo:</label>
-        <input type="text" name="nome_jogo" id="nome_jogo" required autocomplete="off" />
-        <br />
-        <div id="campo_url">
-          <label for="img_jogo">URL da imagem de capa:</label>
-          <input type="url" name="img_jogo" id="img_jogo" placeholder="https://exemplo.com/imagem.jpg" autocomplete="off" />
-        </div>
-        <label>AVALIAÇÃO:</label>
+   <div id="Criar" class="secao" style="display: none;">
+  <div class="container mt-4">
+    <h2 class="mb-4">Criar Postagem</h2>
+    <form class="row g-3">
+      <div class="col-md-6">
+        <label for="nome_jogo" class="form-label">Nome do Jogo</label>
+        <input type="text" class="form-control" id="nome_jogo" name="nome_jogo" required autocomplete="off" />
+      </div>
+      <div class="col-md-6">
+        <label for="img_jogo" class="form-label">URL da Imagem de Capa</label>
+        <input type="url" class="form-control" id="img_jogo" name="img_jogo" placeholder="https://exemplo.com/imagem.jpg" autocomplete="off" />
+      </div>
+      <div class="col-12">
+        <label class="form-label">Avaliação</label>
         <div class="classificacao">
           <span class="estrela">&#9733;</span>
           <span class="estrela">&#9733;</span>
@@ -86,21 +106,17 @@
           <span class="estrela">&#9733;</span>
           <span class="estrela">&#9733;</span>
         </div>
-
-        <div class="form-floating mt-2">
-          <textarea class="form-control" placeholder="Deixe seu comentário" autocomplete="off" id="floatingTextarea2" style="height: 80px;width: 40%;"></textarea>
-          <label for="floatingTextarea2">Comentários</label>
-        </div>
-
-        <br />
-        <button type="button" class="btn btn-primary" onclick="criarpost()">postar</button>        
-      </form>
-
-          
-
-
-
-    </div>
+      </div>
+      <div class="col-12">
+        <label for="floatingTextarea2" class="form-label">Comentários</label>
+        <textarea class="form-control" id="floatingTextarea2" placeholder="Deixe seu comentário" style="height: 100px;"></textarea>
+      </div>
+      <div class="col-12">
+        <button type="button" class="btn btn-primary" onclick="criarpost()">Postar</button>
+      </div>
+    </form>
+  </div>
+</div>
 
     <div id="RECOMENDADOS" class="secao" style="display: none;">
     <div class="container text-center">
@@ -120,8 +136,6 @@
   </div>
     </div>
 <br>
-
-
  <div class="container text-center">
   <div class="row">
     <div class="col">
@@ -233,7 +247,7 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
   let catalogoLista = document.getElementById('catalogo-lista');
 
   let card = document.createElement('div');
-  card.className = "col";
+  card.className = "col1";
   card.innerHTML = `
     <div class="card h-100">
       <img src="${imgjogo.value}" class="card-img-top" alt="${nomejogo.value}">
@@ -243,16 +257,12 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
     </div>
   `;
   catalogoLista.appendChild(card);
-  //DISPARAR O TOAST
   avisoPostCriado(nomejogo.value);
 
   nomejogo.value = "";
   imgjogo.value = "";
 
-  
-  
-
-  mostrarConteudo("CATÁLOGO");
+  mostrarConteudo("catalogo");
 }
 
 
@@ -260,8 +270,6 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
       document.body.classList.toggle("dark-mode");
       const icone = document.getElementById("icone-tema");
       icone.src = document.body.classList.contains("dark-mode")
-        ? "../projeto/imgs_projeto/lua.png"
-        : "../projeto/imgs_projeto/new-removebg-preview.png";
     }
 
     function mostrarConteudo(id) {
@@ -275,20 +283,22 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
       }
     }
 
-    function avaliar(event) {
-      const estrelas = document.getElementsByClassName("estrela");
-      let clicada = event.target;
-      let index = Array.from(estrelas).indexOf(clicada);
-      for (let i = 0; i < estrelas.length; i++) {
-        estrelas[i].classList.toggle("selecionada", i <= index);
-      }
+   function avaliar(event) {
+  const estrelas = document.querySelectorAll(".estrela");
+  let selecionada = false;
+  estrelas.forEach((estrela, index) => {
+    if (estrela === event.target) {
+      selecionada = true;
     }
+    estrela.classList.toggle("selecionada", selecionada);
+  });
+}
 
-    const estrelas = document.getElementsByClassName("estrela");
-    Array.from(estrelas).forEach(estrela => {
-      estrela.addEventListener("click", avaliar);
-    });
-  </script>
+document.querySelectorAll(".estrela").forEach(estrela => {
+  estrela.addEventListener("click", avaliar);
+});
+
+</script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
@@ -300,7 +310,15 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
           document.getElementById("tituloPost").innerText = tituloPost;
           toastBootstrap.show();
        }
-
     </script>
+    <script>
+  document.querySelectorAll('.submenu-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const submenu = btn.nextElementSibling;
+      submenu.classList.toggle('show');
+    });
+  });
+</script>
+
 </body>
 </html>
