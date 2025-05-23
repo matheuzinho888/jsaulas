@@ -98,3 +98,11 @@ button {
 .estrela.selecionada {
       color: gold;
 }
+
+.col img:hover{
+  transition: all 0.3s ease;
+  transform: scale(1.1);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.88);
+}
+
+

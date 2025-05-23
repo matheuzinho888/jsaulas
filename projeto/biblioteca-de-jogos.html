@@ -72,11 +72,11 @@
       <h2>Criar postagem</h2>
       <form class="menu-bloco">
         <label for="nome_jogo">Nome do jogo:</label>
-        <input type="text" name="nome_jogo" id="nome_jogo" required />
+        <input type="text" name="nome_jogo" id="nome_jogo" required autocomplete="off" />
         <br />
         <div id="campo_url">
           <label for="img_jogo">URL da imagem de capa:</label>
-          <input type="url" name="img_jogo" id="img_jogo" placeholder="https://exemplo.com/imagem.jpg" />
+          <input type="url" name="img_jogo" id="img_jogo" placeholder="https://exemplo.com/imagem.jpg" autocomplete="off" />
         </div>
         <label>AVALIAÇÃO:</label>
         <div class="classificacao">
@@ -88,13 +88,18 @@
         </div>
 
         <div class="form-floating mt-2">
-          <textarea class="form-control" placeholder="Deixe seu comentário" id="floatingTextarea2" style="height: 80px;width: 40%;"></textarea>
+          <textarea class="form-control" placeholder="Deixe seu comentário" autocomplete="off" id="floatingTextarea2" style="height: 80px;width: 40%;"></textarea>
           <label for="floatingTextarea2">Comentários</label>
         </div>
 
         <br />
         <button type="button" class="btn btn-primary" onclick="criarpost()">postar</button>        
       </form>
+
+          
+
+
+
     </div>
 
     <div id="RECOMENDADOS" class="secao" style="display: none;">
@@ -174,10 +179,16 @@
 
     <div id="SOBRE" class="secao" style="display: none;">
       <h2>Sobre o projeto</h2>
-      <p>
-        Somos um grupo de entusiastas que compartilham uma paixão genuína por jogos. Este site é fruto dessa paixão — um espaço criado com dedicação, curiosidade e o desejo de explorar tudo o que o universo dos games pode oferecer.
-        <br /><br />
-        Mais do que um site, queremos construir um ponto de encontro para quem enxerga nos jogos algo além do passatempo — uma forma de expressão, criação e conexão.
+      <p style="text-align: center;">
+        A nossa biblioteca de jogos é um espaço dedicado ao acesso, empréstimo e uso de uma ampla variedade de jogos, que podem incluir jogos de tabuleiro, cartas, quebra-cabeças, RPGs, jogos digitais e educativos. Seu principal objetivo é promover a interação social, o aprendizado, o entretenimento e o desenvolvimento cognitivo por meio do jogo.
+
+O ambiente é organizado, acolhedor e acessível, contando com áreas para jogos em grupo, sessões individuais e atividades mediadas por monitores ou educadores. Os títulos disponíveis abrangem diferentes faixas etárias, níveis de complexidade e interesses, garantindo opções tanto para iniciantes quanto para jogadores experientes.
+
+Além do acervo, a biblioteca de jogos frequentemente realiza eventos como campeonatos, oficinas de criação de jogos, encontros de RPG e sessões temáticas, estimulando a criatividade, a cooperação e o pensamento estratégico.
+
+Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um ponto de encontro onde diversão e aprendizado caminham juntos.
+
+
       </p>
     </div>
 
@@ -194,7 +205,20 @@
     </a>
 </div>
 
+
+
   </main>
+      <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+            <!-- <img src="..." class="rounded me-2" alt="..."> -->
+            <strong class="me-auto">Post criado com sucesso!</strong>
+            <small>Criado neste momento</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="tituloPost"></div>
+        </div>
+      </div>
 
   <script>
     function criarpost() {
@@ -205,7 +229,7 @@
     alert("Por favor, preencha os campos de nome e imagem do jogo!");
     return;
   }
-
+  
   let catalogoLista = document.getElementById('catalogo-lista');
 
   let card = document.createElement('div');
@@ -219,9 +243,14 @@
     </div>
   `;
   catalogoLista.appendChild(card);
+  //DISPARAR O TOAST
+  avisoPostCriado(nomejogo.value);
 
   nomejogo.value = "";
   imgjogo.value = "";
+
+  
+  
 
   mostrarConteudo("CATÁLOGO");
 }
@@ -263,5 +292,15 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
+
+      <script>
+        function avisoPostCriado(tituloPost){
+          let toastLiveExample = document.getElementById('liveToast');
+          let toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+          document.getElementById("tituloPost").innerText = tituloPost;
+          toastBootstrap.show();
+       }
+
+    </script>
 </body>
 </html>
