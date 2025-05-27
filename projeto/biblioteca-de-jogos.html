@@ -23,7 +23,7 @@
       <li class="has-submenu">
         <button class="submenu-toggle" id="sub"><i class="bi bi-folder2"></i> CATÁLOGO</button>
         <ul class="submenu">
-          <li><a href="#" onclick="mostrarConteudo('CRIADOS')"><i class="bi bi-bookmarks"></i> POSTS CRIADOS</a></li>
+          <li><a href="#" id="catal" onclick="mostrarConteudo('CRIADOS')"><i class="bi bi-bookmarks"></i> POSTS CRIADOS</a></li>
           <li><a href="#" onclick="mostrarConteudo('RECOMENDADOS')"><i class="bi bi-bookmark-star"></i> RECOMENDADOS</a></li>
         </ul>
       </li>
@@ -45,6 +45,7 @@
     <p style="color: white;">E</p>
   </nav>
 </aside>
+
 
 
  
@@ -75,14 +76,11 @@
       </div>
     </div>
 
-<div id="catalogo" class="secao" style="display: none;">
-  <h2>Catálogo de Jogos</h2>
-  <div id="catalogo-lista" class="row row-cols-1 row-cols-md-3 g-4">  
-  </div>
-</div>
-
-</div>
-
+      <div id="CRIADOS" class="row row-cols-1 row-cols-md-3 g-4 secao" style="display: none;">
+        <h2>Catálogo de Jogos</h2>
+  <!-- <div id="catalogo-lista" class="row row-cols-1 row-cols-md-3 g-4">  
+  </div> -->
+      </div>
     </div>
 
    <div id="Criar" class="secao" style="display: none;">
@@ -99,7 +97,7 @@
       </div>
       <div class="col-12">
         <label class="form-label">Avaliação</label>
-        <div class="classificacao">
+        <div class="classificacao" style="display: flex;flex-direction: row-reverse;justify-content: flex-end;">
           <span class="estrela">&#9733;</span>
           <span class="estrela">&#9733;</span>
           <span class="estrela">&#9733;</span>
@@ -187,47 +185,68 @@
     </div>
   </div>
 </div>
-    
-
 <br>
-
     <div id="SOBRE" class="secao" style="display: none;">
-      <h2>Sobre o projeto</h2>
-      <p style="text-align: center;">
-        A nossa biblioteca de jogos é um espaço dedicado ao acesso, empréstimo e uso de uma ampla variedade de jogos, que podem incluir jogos de tabuleiro, cartas, quebra-cabeças, RPGs, jogos digitais e educativos. Seu principal objetivo é promover a interação social, o aprendizado, o entretenimento e o desenvolvimento cognitivo por meio do jogo.
-
+      <h2 style="display: flex;justify-content: center;padding-bottom: 15px">Sobre o projeto</h2>
+      <span style="display: flex;justify-content: center;"><p style="font-size: x-large;font-size: x-large;text-align: center;width: 70%"> A nossa biblioteca de jogos é um espaço dedicado ao acesso, empréstimo e uso de uma ampla variedade de jogos, que podem incluir jogos de tabuleiro, cartas, quebra-cabeças, RPGs, jogos digitais e educativos. Seu principal objetivo é promover a interação social, o aprendizado, o entretenimento e o desenvolvimento cognitivo por meio do jogo.
 O ambiente é organizado, acolhedor e acessível, contando com áreas para jogos em grupo, sessões individuais e atividades mediadas por monitores ou educadores. Os títulos disponíveis abrangem diferentes faixas etárias, níveis de complexidade e interesses, garantindo opções tanto para iniciantes quanto para jogadores experientes.
-
 Além do acervo, a biblioteca de jogos frequentemente realiza eventos como campeonatos, oficinas de criação de jogos, encontros de RPG e sessões temáticas, estimulando a criatividade, a cooperação e o pensamento estratégico.
-
 Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um ponto de encontro onde diversão e aprendizado caminham juntos.
-
-
       </p>
+      </span>
+ 
     </div>
 
   <div id="GITHUB" class="secao" style="display: none;">
     <h2>GitHub dos Desenvolvedores</h2>
     <a href="https://github.com/matheuzinho888" target="_blank">
     <img src="https://avatars.githubusercontent.com/u/177585311?v=4" alt="GitHub" style="width: 100px; border-radius: 50%;" />
-    </a>
+  </a>
     <a href="https://github.com/ryan-antunes" target="_blank">
     <img src="https://avatars.githubusercontent.com/u/177585072?v=4" alt="GitHub" style="width: 100px; border-radius: 50%;" />
-    </a>
+  </a>
     <a href="https://github.com/pedrao2109" target="_blank">
-    <img src="https://avatars.githubusercontent.com/u/177585079?v=4" alt="GitHub" style="width: 100px; border-radius: 50%;" />
-    </a>
+      <img src="https://avatars.githubusercontent.com/u/177585079?v=4" class="rounded float-start" alt="..." style="width: 100px; border-radius: 50%;">
+  </a>
 </div>
+<!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div> -->
 
 
 
   </main>
       <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style=" background-color: #63b963;">
             <div class="toast-header">
             <!-- <img src="..." class="rounded me-2" alt="..."> -->
             <strong class="me-auto">Post criado com sucesso!</strong>
-            <small>Criado neste momento</small>
+            <small >Criado neste momento</small>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body" id="tituloPost"></div>
@@ -244,7 +263,7 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
     return;
   }
   
-  let catalogoLista = document.getElementById('catalogo-lista');
+  let catalogoLista = document.getElementById('CRIADOS');
 
   let card = document.createElement('div');
   card.className = "col1";
@@ -262,7 +281,7 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
   nomejogo.value = "";
   imgjogo.value = "";
 
-  mostrarConteudo("catalogo");
+  mostrarConteudo("CRIADOS");
 }
 
 

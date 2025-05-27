@@ -38,7 +38,7 @@ button {
   left: 0;
   height: 100%;
   width: 215px;
-  background-color: #222;
+  background-color: #000000;
   padding: 20px;
   overflow-y: auto;
   z-index: 1000;
