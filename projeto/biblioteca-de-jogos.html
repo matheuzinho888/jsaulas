@@ -41,15 +41,12 @@
       </button>
     </div>
 
-    <h1 style="color: white;">B</h1>
-    <p style="color: white;">E</p>
+    <h1 style="color: white;"><i class="bi bi-instagram"></i>
+    <i class="bi bi-twitter-x"></i>
+    <i class="bi bi-whatsapp"></i>
+  </h1>
   </nav>
 </aside>
-
-
-
- 
-
 
   <main class="conteudo">
     <div id="conteudo" class="secao">
@@ -78,8 +75,11 @@
 
       <div id="CRIADOS" class="row row-cols-1 row-cols-md-3 g-4 secao" style="display: none;">
         <h2>Catálogo de Jogos</h2>
-  <!-- <div id="catalogo-lista" class="row row-cols-1 row-cols-md-3 g-4">  
-  </div> -->
+          <div>
+                <input type="text" placeholder="Pesquisar JOGO" value="" id="pesquisarJogo">
+                <button onclick="pesquisarJogo();">PESQUISAR</button>
+            </div>
+    
       </div>
     </div>
 
@@ -120,16 +120,16 @@
     <div class="container text-center">
   <div class="row">
     <div class="col">
-      <img src="./imgs_projeto/spiderman.jpg" alt="yyy" style="width: 89%;">
-      <p>SPIDER-MAN</p>
+        <img src="./imgs_projeto/spiderman.jpg" alt="yyy" style="width: 89%;">
+        <p>SPIDER-MAN</p>
     </div>
     <div class="col">
-     <img src="./imgs_projeto/black.jpg" alt="yyy" style="width: 89%;">
-     <p>BLACK</p>
+        <img src="./imgs_projeto/black.jpg" alt="yyy" style="width: 89%;">
+        <p>BLACK</p>
     </div>
     <div class="col">
-      <img src="./imgs_projeto/50cent.png" alt="yyy" style="width: 80%;">
-      <p>50CENT: BULLETPROOF</p>
+        <img src="./imgs_projeto/50cent.png" alt="yyy" style="width: 80%;">
+        <p>50CENT: BULLETPROOF</p>
     </div>
   </div>
     </div>
@@ -137,16 +137,16 @@
  <div class="container text-center">
   <div class="row">
     <div class="col">
-      <img src="./imgs_projeto/dragon ball.jpg" alt="yyy" style="width: 90%;">
-      <p>DRAGON BALL Z</p>
+        <img src="./imgs_projeto/dragon ball.jpg" alt="yyy" style="width: 90%;">
+        <p>DRAGON BALL Z</p>
     </div>
     <div class="col">
-     <img src="./imgs_projeto/farcry3.png" alt="yyy" style="width: 88%;">
-     <p>FAR CRY 3</p>
+        <img src="./imgs_projeto/farcry3.png" alt="yyy" style="width: 88%;">
+        <p>FAR CRY 3</p>
     </div>
     <div class="col">
-      <img src="./imgs_projeto/guitarhero.png" alt="yyy" style="width: 90%;">
-      GUITAR HERO 3
+        <img src="./imgs_projeto/guitarhero.png" alt="yyy" style="width: 90%;">
+        <p>GUITAR HERO 3</p>
     </div>
     </div>
   </div>
@@ -154,16 +154,16 @@
   <div class="container text-center">
    <div class="row">
     <div class="col">
-      <img src="./imgs_projeto/needforspeed.png" alt="yyy" style="width: 92%;">
-      <p>NEED FOR SPEED: MOST WANTED</p>
+        <img src="./imgs_projeto/needforspeed.png" alt="yyy" style="width: 92%;">
+        <p>NEED FOR SPEED: MOST WANTED</p>
     </div>
     <div class="col">
-     <img src="./imgs_projeto/midnight.png" alt="yyy" style="width: 88%;">
-     <p>MIDNIGHT CLUB 3</p>
+        <img src="./imgs_projeto/midnight.png" alt="yyy" style="width: 88%;">
+        <p>MIDNIGHT CLUB 3</p>
     </div>
     <div class="col">
-      <img src="./imgs_projeto/mk.png" alt="yyy" style="width: 89%;">
-      <p>MORTAL KOMBAT: SHAOLIN MONKS</p>
+        <img src="./imgs_projeto/mk.png" alt="yyy" style="width: 89%;">
+        <p>MORTAL KOMBAT: SHAOLIN MONKS</p>
     </div>
    </div>
   </div>
@@ -175,8 +175,8 @@
         <p>WATCH DOGS 2</p>
       </div>
       <div class="col">
-       <img src="./imgs_projeto/gow3.webp" alt="yyy" style="width: 91%;">
-       <p>GOD OF WAR 3</p>
+        <img src="./imgs_projeto/gow3.webp" alt="yyy" style="width: 91%;">
+        <p>GOD OF WAR 3</p>
       </div>
       <div class="col">
         <img src="./imgs_projeto/gtasan.webp" alt="yyy" style="width: 93%;">
@@ -197,10 +197,18 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
  
     </div>
 
-  <div id="GITHUB" class="secao" style="display: none;">
+  <div id="GITHUB" class="row row-cols-1 row-cols-md-3 g-4 secao" style="display: none;">
     <h2>GitHub dos Desenvolvedores</h2>
     <a href="https://github.com/matheuzinho888" target="_blank">
-    <img src="https://avatars.githubusercontent.com/u/177585311?v=4" alt="GitHub" style="width: 100px; border-radius: 50%;" />
+    <div class="col">
+     <div class="card">
+    <img src="https://avatars.githubusercontent.com/u/177585311?v=4" class="card-img-top" alt="GitHub"  />
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
   </a>
     <a href="https://github.com/ryan-antunes" target="_blank">
     <img src="https://avatars.githubusercontent.com/u/177585072?v=4" alt="GitHub" style="width: 100px; border-radius: 50%;" />
@@ -209,7 +217,7 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
       <img src="https://avatars.githubusercontent.com/u/177585079?v=4" class="rounded float-start" alt="..." style="width: 100px; border-radius: 50%;">
   </a>
 </div>
-<!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+<!--  <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
     <div class="card">
       <img src="..." class="card-img-top" alt="...">
@@ -316,6 +324,85 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
 document.querySelectorAll(".estrela").forEach(estrela => {
   estrela.addEventListener("click", avaliar);
 });
+if (localStorage.getItem("jsonCarregado")!='true'){
+        carregarConteudo();
+    }else{
+        popularHTML();
+    }
+
+    function excluirLocalStorage(){
+        localStorage.clear();
+        window.location.reload();
+    }
+    function carregarConteudo() {
+        fetch("./dados/jogos.json")
+            .then((res) => {
+            return res.json();
+            })
+            .then((conteudo_json) => {
+                // Aqui você armazena o objeto JSON como uma string no localStorage
+                localStorage.removeItem("jogos");
+                localStorage.setItem("jogos", JSON.stringify(conteudo_json));
+                localStorage.setItem("jsonCarregado", 'true');            
+                popularHTML();
+            })
+            .catch((erro) => {
+            console.error("Erro ao carregar as informações:", erro);
+            });
+        }
+
+        function popularHTML(){
+            const jogos = JSON.parse(localStorage.getItem("jogos"));
+            for (let i = 0; i < jogos.length; i++) {
+                adicionarElemento(jogos[i],i);        
+            }
+        }
+
+    function adicionarElemento(jogo, pos) {      
+        const container = document.getElementById("conteudo_jogos");
+        let divContainer = container.getElementsByClassName('row')[0];
+        
+        // Criar um novo elemento para o conteudo do jogo
+        const sectionJogo = document.createElement("section");
+        
+        sectionJogo.setAttribute("id", `jogo-${pos}`);            
+        sectionJogo.classList.add("col", "jogo", "item2");
+
+        // Adicionar conteúdo
+        // <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarCampanha">Editar via Target</button>
+
+
+        sectionJogo.innerHTML = `
+            <div class="card shadow-sm">
+                <img src="${jogo.capa}" alt="foto-${jogo.nome}">
+                <h2 class="fw-normal text-center">${jogo.nome}</h2>
+
+                <div class="card-body">
+                    <p class="card-text">${jogo.sobre}.</p>
+                            <label class="form-label">Avaliação</label>
+                            <div class="classificacao" style="display: flex;flex-direction: row-reverse;justify-content: flex-end;">
+                                <span class="estrela 1">&#9733;</span>
+                                <span class="estrela 2">&#9733;</span>
+                                <span class="estrela 3">&#9733;</span>
+                                <span class="estrela 4">&#9733;</span>
+                                <span class="estrela 5">&#9733;</span>
+                            </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group"> 
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="abirConteudo(${pos})">Visualizar</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="editarJogo(${pos})">Editar</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="mostrarHobbiesJogo(${pos})">Hobbies</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Adicionar o novo elemento ao container
+        divContainer.appendChild(sectionJogo);       
+    
+    }
 
 </script>
 
@@ -338,6 +425,8 @@ document.querySelectorAll(".estrela").forEach(estrela => {
     });
   });
 </script>
+
+
 
 </body>
 </html>

@@ -1,0 +1,29 @@
+[
+   {
+      "nome":"Super Mário",
+      "sobre":"ABC",
+      "avaliacao":5,
+      "capa":"https://www.nintendo.com/eu/media/images/10_share_images/portals_3/2x1_SuperMarioHub.jpg",
+      "comentarios":{
+         "0":"Jogo Sensacional"
+      }
+   },
+   {
+      "nome":"Residente Evil",
+      "sobre": "DEF",
+      "avaliacao":4,
+      "capa":"https://www.residentevildatabase.com/wp-content/uploads/2024/06/resident-evil-jill-leon.jpg",
+      "comentarios":{
+         "0":"Jogo Top"
+      }
+   },
+      {
+      "nome":"Resid Teste",
+      "sobre": "fghui",
+      "avaliacao":1,
+      "capa":"https://www.residentevildatabase.com/wp-content/uploads/2024/06/resident-evil-jill-leon.jpg",
+      "comentarios":{
+         "0":"Jogo rUIM"
+      }
+   }
+]
