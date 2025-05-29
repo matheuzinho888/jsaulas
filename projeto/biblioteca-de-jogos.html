@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../projeto/imgs_projeto/modelo.css" />
+  <link rel="icon" href="imgs_projeto/on.avif">
   <title>Biblioteca de Jogos</title>
 </head>
 
@@ -31,15 +32,16 @@
       <li><a href="#" onclick="mostrarConteudo('SOBRE')"><i class="bi bi-info-circle"></i> SOBRE</a></li>
     </ul>
     
-    <div class="jj mt-3">
-      <a href="#" onclick="mostrarConteudo('GITHUB')" aria-label="Ver GitHub dos desenvolvedores">
-        <i class="bi bi-github" style="color: white; font-size: 400%;"></i>
-      </a>
-      <br />
-      <button onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="background: none; border: none;">
-        <i class="bi bi-brightness-low" style="color: white; font-size: 410%;"></i>
-      </button>
-    </div>
+    <div class="jj mt-3 d-flex flex-column align-items-center gap-3">
+  <a href="#" onclick="mostrarConteudo('GITHUB')" aria-label="Ver GitHub dos desenvolvedores" title="GitHub">
+    <i class="bi bi-github" style="color: white; font-size: 3rem;"></i>
+  </a>
+
+  <button onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="background: none; border: none;" title="Mudar Tema">
+    <i id="icone-tema" class="bi bi-brightness-low" style="color: white; font-size: 3rem;"></i>
+  </button>
+</div>
+
 
     <h1 style="color: white;"><i class="bi bi-instagram"></i>
     <i class="bi bi-twitter-x"></i>
@@ -117,74 +119,97 @@
 </div>
 
     <div id="RECOMENDADOS" class="secao" style="display: none;">
-    <div class="container text-center">
-  <div class="row">
-    <div class="col">
-        <img src="./imgs_projeto/spiderman.jpg" alt="yyy" style="width: 89%;">
-        <p>SPIDER-MAN</p>
-    </div>
-    <div class="col">
-        <img src="./imgs_projeto/black.jpg" alt="yyy" style="width: 89%;">
-        <p>BLACK</p>
-    </div>
-    <div class="col">
-        <img src="./imgs_projeto/50cent.png" alt="yyy" style="width: 80%;">
-        <p>50CENT: BULLETPROOF</p>
-    </div>
-  </div>
-    </div>
-<br>
- <div class="container text-center">
-  <div class="row">
-    <div class="col">
-        <img src="./imgs_projeto/dragon ball.jpg" alt="yyy" style="width: 90%;">
-        <p>DRAGON BALL Z</p>
-    </div>
-    <div class="col">
-        <img src="./imgs_projeto/farcry3.png" alt="yyy" style="width: 88%;">
-        <p>FAR CRY 3</p>
-    </div>
-    <div class="col">
-        <img src="./imgs_projeto/guitarhero.png" alt="yyy" style="width: 90%;">
-        <p>GUITAR HERO 3</p>
-    </div>
+   <div class="container py-4">
+    <div class="row g-4">
+      <!-- Lista de jogos -->
+      
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/ben10.jpg" alt="Dragon Ball Z">
+          <div class="game-title">BEN 10: PROTECTOR DE EARTH</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/castlevania.jpg" alt="Dragon Ball Z">
+          <div class="game-title">CASTLEVANIA</div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/50cent.png" alt="Dragon Ball Z">
+          <div class="game-title">50 CENT:</div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/dragon ball.jpg" alt="Dragon Ball Z">
+          <div class="game-title">DRAGON BALL Z</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/farcry3.png" alt="Far Cry 3">
+          <div class="game-title">FAR CRY 3</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/guitarhero.png" alt="Guitar Hero 3">
+          <div class="game-title">GUITAR HERO 3</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/spiderman.jpg" alt="Need for Speed: Most Wanted">
+          <div class="game-title">SPIDER-MAN</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/midnight.png" alt="Midnight Club 3">
+          <div class="game-title">MIDNIGHT CLUB 3</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/mk.png" alt="Mortal Kombat: Shaolin Monks">
+          <div class="game-title">MORTAL KOMBAT: SHAOLIN MONKS</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/watchdogs2.png" alt="Watch Dogs 2">
+          <div class="game-title">WATCH DOGS 2</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/gow3.webp" alt="God of War 3">
+          <div class="game-title">GOD OF WAR 3</div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="game-card">
+          <img src="./imgs_projeto/gtasan.webp" alt="GTA San Andreas">
+          <div class="game-title">GTA SAN ANDREAS</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="container text-center">
-   <div class="row">
-    <div class="col">
-        <img src="./imgs_projeto/needforspeed.png" alt="yyy" style="width: 92%;">
-        <p>NEED FOR SPEED: MOST WANTED</p>
     </div>
-    <div class="col">
-        <img src="./imgs_projeto/midnight.png" alt="yyy" style="width: 88%;">
-        <p>MIDNIGHT CLUB 3</p>
-    </div>
-    <div class="col">
-        <img src="./imgs_projeto/mk.png" alt="yyy" style="width: 89%;">
-        <p>MORTAL KOMBAT: SHAOLIN MONKS</p>
-    </div>
-   </div>
-  </div>
-
-  <div class="container text-center">
-    <div class="row">
-      <div class="col">
-        <img src="./imgs_projeto/watchdogs2.png" alt="yyy" style="width: 92%;">
-        <p>WATCH DOGS 2</p>
-      </div>
-      <div class="col">
-        <img src="./imgs_projeto/gow3.webp" alt="yyy" style="width: 91%;">
-        <p>GOD OF WAR 3</p>
-      </div>
-      <div class="col">
-        <img src="./imgs_projeto/gtasan.webp" alt="yyy" style="width: 93%;">
-        <p>GTA SAN ANDREAS</p>
-      </div>
-    </div>
-  </div>
-</div>
 <br>
     <div id="SOBRE" class="secao" style="display: none;">
       <h2 style="display: flex;justify-content: center;padding-bottom: 15px">Sobre o projeto</h2>
@@ -199,54 +224,71 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
 
   <div id="GITHUB" class="row row-cols-1 row-cols-md-3 g-4 secao" style="display: none;">
     <h2>GitHub dos Desenvolvedores</h2>
+  <div class="gitz" style="display: flex;padding-left: 20%;">
     <a href="https://github.com/matheuzinho888" target="_blank">
-    <div class="col">
-     <div class="card">
+    <div class="col5">
+     <div class="card" style="width: 250px;">
     <img src="https://avatars.githubusercontent.com/u/177585311?v=4" class="card-img-top" alt="GitHub"  />
     <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">@matheuzinho888</h5>
+        <p class="card-text">Olá, eu sou Matheus Prudente Trevigno <br>
+🏫 Sou um estudante do 3° ano do ensino. <br>
+👨‍🎓 Cursando desenvolvimento de sistema. <br>
+🌎 Sorocaba-SP <br>
+👤 17 anos <br>
+💻 Aprendendo no curso <br>
+📁 FrontEnd <br>
+📁 Python <br>
+📁 CSS <br> 
+📁 HTML <br>
+</p>
       </div>
     </div>
   </div>
   </a>
-    <a href="https://github.com/ryan-antunes" target="_blank">
-    <img src="https://avatars.githubusercontent.com/u/177585072?v=4" alt="GitHub" style="width: 100px; border-radius: 50%;" />
-  </a>
-    <a href="https://github.com/pedrao2109" target="_blank">
-      <img src="https://avatars.githubusercontent.com/u/177585079?v=4" class="rounded float-start" alt="..." style="width: 100px; border-radius: 50%;">
-  </a>
-</div>
-<!--  <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<a href="https://github.com/pedrao2109" target="_blank" style="padding-left: 70px;padding-right: 70px;">
+    <div class="col5">
+     <div class="card" style="width: 250px;" >
+    <img src="https://avatars.githubusercontent.com/u/177585079?v=4" class="card-img-top" alt="GitHub"  />
+    <div class="card-body">
+        <h5 class="card-title">@pedrao2109</h5>
+        <p class="card-text">Bem vindo ao meu perfil 👋 <br>
+🙋‍♂️ Meu nome é Pedro tenho 17 anos <br>
+linguagens que estou estudando <br>
+📕 Python <br>
+📕 css <br>
+📕 HTML <br>
+Meus projetos <br>
+💼 70 exercícios em python <br>
+💼 site em HTML <br>
+💼 Projeto do spotipy <br>
+</p>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+  </a>
+  <a href="https://github.com/ryan-antunes" target="_blank">
+    <div class="col5">
+     <div class="card" style="width: 250px;">
+    <img src="https://avatars.githubusercontent.com/u/177585072?v=4" class="card-img-top" alt="GitHub"  />
+    <div class="card-body">
+        <h5 class="card-title">@ryan-antunes</h5>
+        <p class="card-text">Olá, eu sou o Ryan Antunes! <br>
+📕Sou estudante do 3° Ano do Ensino Médio; <br>
+📘Estou cursando Desenvolvimento de Sistemas; <br>
+📅Tenho 17 anos; <br>
+📍 Sorocaba-SP. <br>
+Aprendendo: <br>
+📗Python; <br>
+📗HTML; <br>
+📗CSS. <br></p>
       </div>
     </div>
   </div>
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div> -->
-
-
+</a>
+  </div>
+  </div>
+  
 
   </main>
       <div class="toast-container position-fixed bottom-0 end-0 p-3">
@@ -293,11 +335,24 @@ Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um pont
 }
 
 
+    // function toggleDarkMode() {
+    //   document.body.classList.toggle("dark-mode");
+    //   const icone = document.getElementById("icone-tema");
+    //   icone.src = document.body.classList.contains("dark-mode")
+    // }
     function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-      const icone = document.getElementById("icone-tema");
-      icone.src = document.body.classList.contains("dark-mode")
-    }
+  document.body.classList.toggle("dark-mode");
+
+  const icone = document.getElementById("icone-tema");
+  if (document.body.classList.contains("dark-mode")) {
+    icone.classList.remove("bi-brightness-low");
+    icone.classList.add("bi-moon-stars-fill");
+  } else {
+    icone.classList.remove("bi-moon-stars-fill");
+    icone.classList.add("bi-brightness-low");
+  }
+}
+
 
     function mostrarConteudo(id) {
       const secoes = document.querySelectorAll('.secao');

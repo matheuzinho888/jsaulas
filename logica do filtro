@@ -1,11 +1,11 @@
 let pesquisa = "resid";
 const jogos = JSON.parse(localStorage.getItem("jogos"));
 
-const resultados = jogos.filter(jogo => 
+let resultados = jogos.filter(jogo => 
     jogo.nome.toLowerCase().includes(pesquisa.toLowerCase())
 );
 
-localStorage.setItem("jogosPesquisados", resultados);
+localStorage.setItem("jogosPesquisados", JSON.stringify(resultados));
 resultados =[];
 
 
