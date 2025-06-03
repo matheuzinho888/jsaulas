@@ -3,12 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: god;
+  src: url("./GODOFWAR.TTF");
+}
 
 body {
   background-color: white;
   color: black;
   transition: 0.3s;
   font-family: 'Inter', sans-serif;
+  
 }
 
 body.dark-mode {
@@ -80,7 +85,6 @@ button {
   border-left: 4px solid white;
 }
 
-
 .menu-vertical nav ul li img {
   width: 30px;
 }
@@ -92,6 +96,7 @@ button {
 .mudar-cor{
   width: 75px; 
 }
+
 .conteudo {
   margin-left: 220px;
   padding: 30px;
@@ -194,6 +199,9 @@ a, button, .card, .submenu {
   padding: 10px 20px;
   border-radius: 8px;
   font-weight: bold;
+}
+#SOBRE{
+  font-family: god;
 }
 
 .btn-primary:hover {
