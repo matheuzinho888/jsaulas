@@ -44,82 +44,22 @@
             </nav>
         </aside>
         <body>
-  <div id="GITHUB" class="row row-cols-1 row-cols-md-3 g-4 secao" ></div>
-    <h2>GitHub dos Desenvolvedores</h2>
-  <div class="gitz" style="display: flex;padding-left: 20%;">
-    <a href="https://github.com/matheuzinho888" target="_blank">
-    <div class="col5">
-     <div class="card" style="width: 250px;">
-    <img src="https://avatars.githubusercontent.com/u/177585311?v=4" class="card-img-top" alt="GitHub"  />
-    <div class="card-body">
-        <h5 class="card-title">@matheuzinho888</h5>
-        <p class="card-text">Olá, eu sou Matheus Prudente Trevigno <br>
-🏫 Sou um estudante do 3° ano do ensino. <br>
-👨‍🎓 Cursando desenvolvimento de sistema. <br>
-🌎 Sorocaba-SP <br>
-👤 17 anos <br>
-💻 Aprendendo no curso <br>
-📁 FrontEnd <br>
-📁 Python <br>
-📁 CSS <br> 
-📁 HTML <br>
-</p>
-      </div>
-    </div>
-  </div>
-  </a>
-<a href="https://github.com/pedrao2109" target="_blank" style="padding-left: 70px;padding-right: 70px;">
-    <div class="col5">
-     <div class="card" style="width: 250px;" >  
-    <img src="https://avatars.githubusercontent.com/u/177585079?v=4" class="card-img-top" alt="GitHub"  />
-    <div class="card-body">
-        <h5 class="card-title">@pedrao2109</h5>
-        <p class="card-text">Bem vindo ao meu perfil 👋 <br>
-🙋‍♂️ Meu nome é Pedro tenho 17 anos <br>
-linguagens que estou estudando <br>
-📕 Python <br>
-📕 css <br>
-📕 HTML <br>
-Meus projetos <br>
-💼 70 exercícios em python <br>
-💼 site em HTML <br>
-💼 Projeto do spotipy <br>
-</p>
-      </div>
-    </div>
-  </div>
-  </a>
-  <a href="https://github.com/ryan-antunes" target="_blank">
-    <div class="col5">
-     <div class="card" style="width: 250px;">
-    <img src="https://avatars.githubusercontent.com/u/177585072?v=4" class="card-img-top" alt="GitHub"  />
-    <div class="card-body">
-        <h5 class="card-title">@ryan-antunes</h5>
-        <p class="card-text">Olá, eu sou o Ryan Antunes! <br>
-📕Sou estudante do 3° Ano do Ensino Médio; <br>
-📘Estou cursando Desenvolvimento de Sistemas; <br>
-📅Tenho 17 anos; <br>
-📍 Sorocaba-SP. <br>
-Aprendendo: <br>
-📗Python; <br>
-📗HTML; <br>
-📗CSS. <br></p>
-      </div>
-    </div>
-  </div>
-</a>
-  </div>
-  </div>
+          <main class="conteudo">
+            <div class="titulo" style="">
+              <h1>jogos recomendados pelo criador</h1>
+              <p>voce pode enviar jogos daqui para o seu catalogo</p>
+            </div>
+            <div id="RECOMENDADOS" class="secao" >
+            <div class="container py-4">
+              <div class="row g-4">
+                <!-- Lista de jogos -->
+              </div>
+            </div>
+          </div>
+        </main>
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
-      <script>
-        function avisoPostCriado(tituloPost){
-          let toastLiveExample = document.getElementById('liveToast');
-          let toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
-          document.getElementById("tituloPost").innerText = tituloPost;
-          toastBootstrap.show();
-       }
-    </script>
+
       <script>
   document.querySelectorAll('.submenu-toggle').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -139,6 +79,46 @@ Aprendendo: <br>
     icone.classList.add("bi-brightness-low");
   }
 }
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOM fully loaded and parsed");
+  const jogos_ = JSON.parse(localStorage.getItem("jogos"));
+  let jogos_recomendados = jogos_.filter(jogo => 
+    jogo.recomendado.toLowerCase().includes("sim".toLowerCase())
+  );
+  console.log(jogos_recomendados);
+  for (let i = 0; i < jogos_recomendados.length; i++) {
+    adicionarJogosRecomendados(jogos_recomendados[i],i);        
+  }
+  
+});
+
+function adicionarJogosRecomendados(jogo, pos){
+  console.log(jogo)
+        const divRecomendos = document.getElementById("RECOMENDADOS");
+        let divContainer = divRecomendos.getElementsByClassName('row')[0];
+        
+        // Criar um novo elemento para o conteudo do jogo
+        const sectionJogo = document.createElement("section");
+        
+        sectionJogo.setAttribute("id", `jogo-${pos}`);            
+        sectionJogo.classList.add("col", "jogo","col-md-4","col-sm-6");
+
+        // Adicionar conteúdo
+        // <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarCampanha">Editar via Target</button>
+
+
+        sectionJogo.innerHTML = `
+                  <div class="game-card">
+                  <img src="${jogo.capa}" alt="${jogo.sobre}">
+                  <div class="game-title">${jogo.nome}</div>
+                </div>
+        `
+      // Adicionar o novo elemento ao container
+      divContainer.appendChild(sectionJogo);      
+
+}
+
     </script>
-        </body>
+</body>
 </html>

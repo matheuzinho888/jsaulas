@@ -28,7 +28,7 @@
                       <li class="has-submenu">
                         <button class="submenu-toggle" id="sub"><i class="bi bi-folder2"></i> CATÁLOGO</button>
                         <ul class="submenu">
-                            <li><a href="./criados.html" id="catal" ><i class="bi bi-bookmarks"></i> POSTS CRIADOS</a></li>
+                            <li><a href="./criados.html" id="catal" ><i class="bi bi-bookmarks"></i> MEU CATÁLOGO</a></li>
                             <li><a href="recomendados.html" ><i class="bi bi-bookmark-star"></i> RECOMENDADOS</a></li>
                         </ul>
                     </li>
@@ -68,13 +68,7 @@
             </div>
         </div>
     </main>
-    <footer class="text-center">
-        <button onclick="excluirLocalStorage();"  class="btn btn-danger my-2">EXCLUIR LocalStorage</button>
-        <button onclick="exportarConteudoJSON()"  class="btn btn-info my-2">DOWNLOAD</button>
-        <button onclick="adicionarJogo()"  class="btn btn-success my-2">ADICIONAR JOGO</button>
-
-
-    </footer>
+    
 
         <!-- Modal -->
     <div class="modal fade" id="modalJogo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -169,13 +163,13 @@
 
                 <div class="card-body">
                     <p class="card-text">${jogo.sobre}.</p>
-                            <label class="form-label">Avaliação</label>
-                            <div class="classificacao" style="display: flex;flex-direction: row-reverse;justify-content: flex-end;">
-                                <span class="estrela 1">&#9733;</span>
-                                <span class="estrela 2">&#9733;</span>
-                                <span class="estrela 3">&#9733;</span>
-                                <span class="estrela 4">&#9733;</span>
-                                <span class="estrela 5">&#9733;</span>
+                        <label class="form-label">Avaliação</label>
+                            <div class="classificacao" style="display: flex;flex-direction: row;justify-content: flex-start;" >
+                                <span class="estrela ${1 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"}  ">&#9733;</span> 
+                                <span class="estrela ${2 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
+                                <span class="estrela ${3 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
+                                <span class="estrela ${4 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
+                                <span class="estrela ${5 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
                             </div>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group"> 
@@ -194,16 +188,16 @@
     
     }
 
-    //    function avaliacao(event) {
-    //         const estrelas = document.querySelectorAll(".estrela");
-    //         let selecionada = false;
-    //         estrelas.forEach((estrela, index) => {
-    //             if (estrela === event.target) {
-    //             selecionada = true;
-    //             }
-    //             estrela.classList.toggle("selecionada", selecionada);
-    //         });
-    //     }
+    function avaliacao(event) {
+        const estrelas = document.querySelectorAll(".estrela");
+        let selecionada = false;
+        estrelas.forEach((estrela, index) => {
+        if (estrela === event.target) {
+            selecionada = true;
+        }
+        estrela.classList.toggle("selecionada", selecionada);
+        });
+    }
 
         function pesquisarJogo(){
             const container = document.getElementById("conteudo_jogos");
