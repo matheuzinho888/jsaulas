@@ -3,14 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+main{
+      margin-left: 250px;
+}
 @font-face {
   font-family: god;
-  src: url("./GODOFWAR.TTF");
+  src: url("./imgs_projeto/GODOFWAR.TTF");
 }
 
 body {
-  background-color: white;
-  color: black;
+  background-color: #7c92a7;
+  color: #053667;
   transition: 0.3s;
   font-family: 'Inter', sans-serif;
   
@@ -19,14 +22,13 @@ body {
   body {
     background-color: red;
     color: white;  
-    
   }
   
 }
 
 body.dark-mode {
-  background-color: #121212;
-  color: white;
+  background-color: #1E1E2E;
+  color: #8D99AE;
 }
 
 button {
@@ -53,7 +55,7 @@ button {
   left: 0;
   height: 100%;
   width: 215px;
-  background-color: #000000;
+  background-color: #232539;
   padding: 20px;
   overflow-y: auto;
   z-index: 1000;
@@ -85,12 +87,12 @@ button {
 }
 
 .menu-vertical nav ul li a:hover {
-  background-color: #8783833d;
-  border-left: 4px solid white;
+  background-color: #1b1d2e;
+  border-left: 4px solid #535788;
 }
 .menu-vertical .submenu-toggle:hover {
-  background-color: #8783833d;
-  border-left: 4px solid white;
+  background-color: #1b1d2e;
+  border-left: 4px solid #535788;
 }
 
 .menu-vertical nav ul li img {
@@ -101,6 +103,12 @@ button {
   width: 70px;
   margin-top: 40px;
 }
+/* .bi-github:hover{
+background-color: #1b1d2e;
+ transform: scale(1.03);
+  box-shadow: 0 0 15px #b4b1c7;
+  border-radius: 20px;
+} */
 .mudar-cor{
   width: 75px; 
 }
@@ -193,25 +201,32 @@ button {
 .submenu.show {
   display: block;
 }
-a, button, .card, .submenu {
+a, button, .card {
   transition: all 0.5s ease-in-out;
 }
 .card {
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #2B2D42;
+  color: #FFFFFF;
+  border: 1px solid #444;
+  transition: transform 0.3s;
 }
+
 .btn-primary {
-  background-color: blue;
+  background-color: #140597;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
   font-weight: bold;
+}
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px #0e005c;
 }
 #SOBRE{
   font-family: god;
 }
 
 .btn-primary:hover {
-  background-color: #355ee6;
+  background-color: #12023d;
 }
