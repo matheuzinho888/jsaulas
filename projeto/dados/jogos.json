@@ -24,5 +24,14 @@
       "comentarios":"Jogo rUIM" ,
       "recomendado" :"nao"
 
+   },
+   {
+      "nome":"god of war",
+      "sobre": "Categoria C",
+      "avaliacao":1,
+      "capa":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTBdK5DpBjPKqAUf22Vqyv-uAwuNNDBVFQY59KtgenwGyjE2gWf43NymXOKUNZRgk0-l6Jl7xbzAtSgqGsDSSkaZK6jgeGUBYP4VMgQSTM",
+      "comentarios":"Jogo rUIM",
+      "recomendado" :"nao"
+      
    }
 ]
