@@ -1,88 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../projeto/modelo.css" />
-  <title>Biblioteca de Jogos</title>
-</head>
-
-<body>
- <aside class="menu-vertical">
-            <a href="index.html">
-            <img src="./imgs_projeto/10.png" alt="logotipo da biblioteca" class="logo" />
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html"><i class="bi bi-house"></i> INÍCIO</a></li>
-                    <li><a href="criar-post.html"><i class="bi bi-folder-symlink"></i> CRIAR POST</a></li>
-                      <li class="has-submenu">
-                        <button class="submenu-toggle" id="sub"><i class="bi bi-folder2"></i> CATÁLOGO</button>
-                        <ul class="submenu">
-                            <li><a href="./criados.html" id="catal" ><i class="bi bi-bookmarks"></i> MEU CATÁLOGO</a></li>
-                            <li><a href="recomendados.html" ><i class="bi bi-bookmark-star"></i> RECOMENDADOS</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./sobre.html" ><i class="bi bi-info-circle"></i> SOBRE</a></li>
-                </ul>
-                <div class="jj mt-3">
-                    <a href="./github.html" aria-label="Ver GitHub dos desenvolvedores">
-                    <i class="bi bi-github" style="color: white; font-size: 400%;"></i>
-                    </a>
-                    <br />
-                    <button onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="background: none; border: none;">
-                    <i class="bi bi-brightness-low" style="color: white; font-size: 410%;"></i>
-                    </button>
-                </div>
-                <h1 style="color: white;"><i class="bi bi-instagram"></i>
-                    <i class="bi bi-twitter-x"></i>
-                    <i class="bi bi-whatsapp"></i>
-                </h1>
-            </nav>
-        </aside>
-        <main class="geral">
-
- <br>
-    <div id="SOBRE" class="sobre">
-      <h2 style="display: flex;justify-content: center;padding-bottom: 15px">Sobre o projeto</h2>
-     <span style="display: flex;justify-content: center;"><p style="font-size: x-large;text-align: center;width: 70%"> A nossa biblioteca de jogos é um espaço dedicado ao acesso, empréstimo e uso de uma ampla variedade de jogos, que podem incluir jogos de tabuleiro, cartas, quebra-cabeças, RPGs, jogos digitais e educativos. Seu principal objetivo é promover a interação social, o aprendizado, o entretenimento e o desenvolvimento cognitivo por meio do jogo.
-O ambiente é organizado, acolhedor e acessível, contando com áreas para jogos em grupo, sessões individuais e atividades mediadas por monitores ou educadores. Os títulos disponíveis abrangem diferentes faixas etárias, níveis de complexidade e interesses, garantindo opções tanto para iniciantes quanto para jogadores experientes.
-Além do acervo, a biblioteca de jogos frequentemente realiza eventos como campeonatos, oficinas de criação de jogos, encontros de RPG e sessões temáticas, estimulando a criatividade, a cooperação e o pensamento estratégico.
-Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um ponto de encontro onde diversão e aprendizado caminham juntos.</p></span>
-    </div>
- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
-      <script>
-        function avisoPostCriado(tituloPost){
-          let toastLiveExample = document.getElementById('liveToast');
-          let toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
-          document.getElementById("tituloPost").innerText = tituloPost;
-          toastBootstrap.show();
-       }
-    </script>
-      <script>
-  document.querySelectorAll('.submenu-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const submenu = btn.nextElementSibling;
-      submenu.classList.toggle('show');
-    });
-  });
-    function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
-
-  const icone = document.getElementById("icone-tema");
-  if (document.body.classList.contains("dark-mode")) {
-    icone.classList.remove("bi-brightness-low");
-    icone.classList.add("bi-moon-stars-fill");
-  } else {
-    icone.classList.remove("bi-moon-stars-fill");
-    icone.classList.add("bi-brightness-low");
-  }
-}
-</script>
-</main>
-</body>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../projeto/modelo.css" />
+      <title>Biblioteca de Jogos</title>
+   </head>
+   <body>
+      <aside class="menu-vertical">
+         <a href="index.html">
+         <img src="./imgs_projeto/10.png" alt="logotipo da biblioteca" class="logo" />
+         </a>
+         <nav>
+            <ul>
+               <li><a href="index.html"><i class="bi bi-house"></i> INÍCIO</a></li>
+               <li><a href="criar-post.html"><i class="bi bi-folder-symlink"></i> CRIAR POST</a></li>
+               <li class="has-submenu">
+                  <button class="submenu-toggle" id="sub"><i class="bi bi-folder2"></i> CATÁLOGO</button>
+                  <ul class="submenu">
+                     <li><a href="./criados.html" id="catal" ><i class="bi bi-bookmarks"></i> MEU CATÁLOGO</a></li>
+                     <li><a href="recomendados.html" ><i class="bi bi-bookmark-star"></i> RECOMENDADOS</a></li>
+                  </ul>
+               </li>
+               <li><a href="./sobre.html" ><i class="bi bi-info-circle"></i> SOBRE</a></li>
+            </ul>
+            <div class="jj mt-3">
+               <a href="./github.html" aria-label="Ver GitHub dos desenvolvedores">
+               <i class="bi bi-github" style="color: white; font-size: 400%;"></i>
+               </a>
+               <br />
+               <button onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="background: none; border: none;">
+               <i class="bi bi-brightness-low" style="color: white; font-size: 410%;"></i>
+               </button>
+            </div>
+            <h1 style="color: white;"><i class="bi bi-instagram"></i>
+               <i class="bi bi-twitter-x"></i>
+               <i class="bi bi-whatsapp"></i>
+            </h1>
+         </nav>
+      </aside>
+      <main class="geral">
+         <br>
+         <div id="SOBRE" class="sobre">
+            <h2 style="display: flex;font-size: 40px ;justify-content: center;padding-bottom: 15px">Sobre o projeto</h2>
+            <span style="display: flex;justify-content: center;">
+               <p class="sob" style="font-size: x-large;text-align: center;width: 70%"> A nossa biblioteca de jogos é um espaço dedicado ao acesso, empréstimo e uso de uma ampla variedade de jogos, que podem incluir jogos de tabuleiro, cartas, quebra-cabeças, RPGs, jogos digitais e educativos. Seu principal objetivo é promover a interação social, o aprendizado, o entretenimento e o desenvolvimento cognitivo por meio do jogo.
+                  O ambiente é organizado, acolhedor e acessível, contando com áreas para jogos em grupo, sessões individuais e atividades mediadas por monitores ou educadores. Os títulos disponíveis abrangem diferentes faixas etárias, níveis de complexidade e interesses, garantindo opções tanto para iniciantes quanto para jogadores experientes.
+                  Além do acervo, a biblioteca de jogos frequentemente realiza eventos como campeonatos, oficinas de criação de jogos, encontros de RPG e sessões temáticas, estimulando a criatividade, a cooperação e o pensamento estratégico.
+                  Aberta à comunidade, escolas e instituições, a biblioteca de jogos é um ponto de encontro onde diversão e aprendizado caminham juntos.
+               </p>
+            </span>
+         </div>
+         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
+         <script>
+            function avisoPostCriado(tituloPost){
+              let toastLiveExample = document.getElementById('liveToast');
+              let toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+              document.getElementById("tituloPost").innerText = tituloPost;
+              toastBootstrap.show();
+            }
+         </script>
+         <script>
+            document.querySelectorAll('.submenu-toggle').forEach(btn => {
+              btn.addEventListener('click', () => {
+                const submenu = btn.nextElementSibling;
+                submenu.classList.toggle('show');
+              });
+            });
+              function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+            
+            const icone = document.getElementById("icone-tema");
+            if (document.body.classList.contains("dark-mode")) {
+              icone.classList.remove("bi-brightness-low");
+              icone.classList.add("bi-moon-stars-fill");
+            } else {
+              icone.classList.remove("bi-moon-stars-fill");
+              icone.classList.add("bi-brightness-low");
+            }
+            }
+         </script>
+      </main>
+   </body>
 </html>

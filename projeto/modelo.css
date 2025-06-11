@@ -1,3 +1,11 @@
+@font-face {
+  font-family: dod;
+  src: url("./imgs_projeto/FrontPageNeue.otf");
+}
+@font-face {
+  font-family: ass;
+  src: url("./imgs_projeto/Montserrat-Regular.ttf");
+}
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +14,17 @@
 main{
       margin-left: 250px;
 }
-@font-face {
-  font-family: god;
-  src: url("./imgs_projeto/GODOFWAR.TTF");
+.asi{
+  font-family: ass;
 }
-
+.sob{
+  font-family: ass;
+}
+a{
+  text-decoration: none
+}
 body {
-  background-color: #7c92a7;
+  background-color: #8caccb;
   color: #053667;
   transition: 0.3s;
   font-family: 'Inter', sans-serif;
@@ -42,6 +54,10 @@ button {
 .modi{
     color: white;
 }
+h2,h1,h5,p{
+  font-family: dod;
+}
+
 
 .jj{
    display: flex;

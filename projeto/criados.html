@@ -1,319 +1,305 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carregando conteúdos de um JSON</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../projeto/modelo.css" />
-    <style>
-            main{
-                margin-left: 220px;
-            }
-    </style>    
-    
-</head>
-<body>
-     <aside class="menu-vertical">
-            <a href="index.html">
-            <img src="./imgs_projeto/10.png" alt="logotipo da biblioteca" class="logo" />
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="index.html"><i class="bi bi-house"></i> INÍCIO</a></li>
-                    <li><a href="criar-post.html"><i class="bi bi-folder-symlink"></i> CRIAR POST</a></li>
-                      <li class="has-submenu">
-                        <button class="submenu-toggle" id="sub"><i class="bi bi-folder2"></i> CATÁLOGO</button>
-                        <ul class="submenu">
-                            <li><a href="./criados.html" id="catal" ><i class="bi bi-bookmarks"></i> MEU CATÁLOGO</a></li>
-                            <li><a href="recomendados.html" ><i class="bi bi-bookmark-star"></i> RECOMENDADOS</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./sobre.html" ><i class="bi bi-info-circle"></i> SOBRE</a></li>
-                </ul>
-                <div class="jj mt-3">
-                    <a href="./github.html" aria-label="Ver GitHub dos desenvolvedores">
-                    <i class="bi bi-github" style="color: white; font-size: 400%;"></i>
-                    </a>
-                    <br />
-                    <button onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="background: none; border: none;">
-                    <i class="bi bi-brightness-low" style="color: white; font-size: 410%;"></i>
-                    </button>
-                </div>
-                <h1 style="color: white;"><i class="bi bi-instagram"></i>
-                    <i class="bi bi-twitter-x"></i>
-                    <i class="bi bi-whatsapp"></i>
-                </h1>
-            </nav>
-        </aside>
-
-    
-    <main>
-    <nav class="navbar navbar-light">
-    <div class="">
-            <div class="input-group mb-3">
-                <input type="text" placeholder="Pesquisar JOGO" value="" id="pesquisarJogo" class="form-control mr-sm-2" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="pesquisarJogo();"><i class="bi bi-search"></i></button>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Carregando conteúdos de um JSON</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="../projeto/modelo.css" />
+      <style>
+         main{
+         margin-left: 220px;
+         }
+      </style>
+   </head>
+   <body>
+      <aside class="menu-vertical">
+         <a href="index.html">
+         <img src="./imgs_projeto/10.png" alt="logotipo da biblioteca" class="logo" />
+         </a>
+         <nav>
+            <ul>
+               <li><a href="index.html"><i class="bi bi-house"></i> INÍCIO</a></li>
+               <li><a href="criar-post.html"><i class="bi bi-folder-symlink"></i> CRIAR POST</a></li>
+               <li class="has-submenu">
+                  <button class="submenu-toggle" id="sub"><i class="bi bi-folder2"></i> CATÁLOGO</button>
+                  <ul class="submenu">
+                     <li><a href="./criados.html" id="catal" ><i class="bi bi-bookmarks"></i> MEU CATÁLOGO</a></li>
+                     <li><a href="recomendados.html" ><i class="bi bi-bookmark-star"></i> RECOMENDADOS</a></li>
+                  </ul>
+               </li>
+               <li><a href="./sobre.html" ><i class="bi bi-info-circle"></i> SOBRE</a></li>
+            </ul>
+            <div class="jj mt-3">
+               <a href="./github.html" aria-label="Ver GitHub dos desenvolvedores">
+               <i class="bi bi-github" style="color: white; font-size: 400%;"></i>
+               </a>
+               <br />
+               <button onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="background: none; border: none;">
+               <i class="bi bi-brightness-low" style="color: white; font-size: 410%;"></i>
+               </button>
             </div>
-        </nav>
-        
-            <div class="container" id="conteudo_jogos">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    <div class="alert alert-danger aviso" role="alert">
-                            VOCÊ NÃO PUBLICOU NADA!
-                    </div>
-                    <!-- Conteudo a ser carregado -->
-                </div>
+            <h1 style="color: white;"><i class="bi bi-instagram"></i>
+               <i class="bi bi-twitter-x"></i>
+               <i class="bi bi-whatsapp"></i>
+            </h1>
+         </nav>
+      </aside>
+      <main>
+         <nav class="navbar navbar-light">
+            <div class="">
+               <div class="input-group mb-3">
+                  <input type="text" placeholder="Pesquisar JOGO" value="" id="pesquisarJogo" class="form-control mr-sm-2" aria-describedby="button-addon2">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="pesquisarJogo();"><i class="bi bi-search"></i></button>
+               </div>
+         </nav>
+         <div class="container" id="conteudo_jogos">
+         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+         <div class="alert alert-danger aviso" role="alert">
+         VOCÊ NÃO PUBLICOU NADA!
+         </div>
+         <!-- Conteudo a ser carregado -->
+         </div>
+         </div>
+         </div>
+      </main>
+      <!-- Modal -->
+      <div class="modal fade" id="modalJogo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <form >
+                  <div class="modal-header">
+                     <h1 class="modal-title fs-5" id="modalJogoLabel">Editando ou Adicionando</h1>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <p>ID: <span id="jogoId"></span></p>
+               <form id="formJogo">
+               <input type="text" id="nomeJogo" placeholder="Nome do jogo" required>
+               <textarea id="sobreJogo" name="descricaoEditar" placeholder="Conte sobre você"  rows="4" cols="50" required></textarea>
+               </form>                
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" id="salvarAlteracoes">SALVAR</button>
+               </div>
             </div>
-        </div>
-    </main>
-    
-
-        <!-- Modal -->
-    <div class="modal fade" id="modalJogo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <form >
-            <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalJogoLabel">Editando ou Adicionando</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>ID: <span id="jogoId"></span></p>
-                <form id="formJogo">
-                    <input type="text" id="nomeJogo" placeholder="Nome do jogo" required>
-                    <textarea id="sobreJogo" name="descricaoEditar" placeholder="Conte sobre você"  rows="4" cols="50" required></textarea>
-                </form>                
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary" id="salvarAlteracoes">SALVAR</button>
-            </div>
-            
-        </div>
-        </div>
-    </div>
-    <hr>
-    <script src="main.js"></script>
-
-    <script>     
-    if (localStorage.getItem("jsonCarregado")!='true'){
-        carregarConteudo();
-    }else{
-        
-       const existeChave = verificarChaveLocalStorage("jogosPesquisados");
-        if (existeChave) {
-            popularHTML("jogosPesquisados");
-        } else {
-            popularHTML("jogos");
-        }           
-    }
-
-    function carregarConteudo() {
-        fetch("./dados/jogos.json")
-            .then((res) => {
-            return res.json();
-            })
-            .then((conteudo_json) => {
-                // Aqui você armazena o objeto JSON como uma string no localStorage
-                localStorage.removeItem("jogos");
-                localStorage.setItem("jogos", JSON.stringify(conteudo_json));
-                localStorage.setItem("jsonCarregado", 'true');            
-                popularHTML("jogos");
-            })
-            .catch((erro) => {
-                console.error("Erro ao carregar as informações:", erro);
-
-            });
-        }
-
-        function popularHTML(chave){
-            const jogos = JSON.parse(localStorage.getItem(chave));
-            if  (jogos.length> 0){
-                for (let i = 0; i < jogos.length; i++) {
-                    adicionarElemento(jogos[i],i);        
-                }
-                document.getElementsByClassName("aviso")[0].classList.add("d-none");
-
-            }else{
-                document.getElementsByClassName("aviso")[0].classList.remove("d-none");
-            }
-
-        }
-
-    function adicionarElemento(jogo, pos) {      
-        const container = document.getElementById("conteudo_jogos");
-        let divContainer = container.getElementsByClassName('row')[0];
-        
-        // Criar um novo elemento para o conteudo do jogo
-        const sectionJogo = document.createElement("section");
-        
-        sectionJogo.setAttribute("id", `jogo-${pos}`);            
-        sectionJogo.classList.add("col", "jogo", "item2");
-
-        // Adicionar conteúdo
-        // <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarCampanha">Editar via Target</button>
-
-
-        sectionJogo.innerHTML = `
-            <div class="card shadow-sm">
-                <img src="${jogo.capa}" alt="foto-${jogo.nome}">
-                <h2 class="fw-normal text-center">${jogo.nome}</h2>
-
-                <div class="card-body">
-                    <p class="card-text">${jogo.sobre}.</p>
-                        <label class="form-label">Avaliação</label>
-                            <div class="classificacao" style="display: flex;flex-direction: row;justify-content: flex-start;" >
-                                <span class="estrela ${1 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"}  ">&#9733;</span> 
-                                <span class="estrela ${2 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
-                                <span class="estrela ${3 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
-                                <span class="estrela ${4 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
-                                <span class="estrela ${5 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
-                            </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group"> 
-                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="abirConteudo(${pos})">Visualizar</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="editarJogo(${pos})">Editar</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="mostrarHobbiesJogo(${pos})">Hobbies</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        // Adicionar o novo elemento ao container
-        divContainer.appendChild(sectionJogo);       
-    
-    }
-
-    function avaliacao(event) {
-        const estrelas = document.querySelectorAll(".estrela");
-        let selecionada = false;
-        estrelas.forEach((estrela, index) => {
-        if (estrela === event.target) {
-            selecionada = true;
-        }
-        estrela.classList.toggle("selecionada", selecionada);
-        });
-    }
-
-        function pesquisarJogo(){
-            const container = document.getElementById("conteudo_jogos");
-            let divContainer = container.getElementsByClassName('row')[0];
-            divContainer.innerHTML="";            
-
-            let pesquisa = document.getElementById("pesquisarJogo").value;
-            const jogos = JSON.parse(localStorage.getItem("jogos"));
-
-            let resultados = jogos.filter(jogo => 
-                jogo.nome.toLowerCase().includes(pesquisa.toLowerCase())
-            );
-
-            localStorage.setItem("jogosPesquisados", JSON.stringify(resultados));
-            
-            //document.getElementById("col.jogo") = "";
-            //PARAM<ANOS AQUI
-            popularHTML("jogosPesquisados");
-        }
-
-        function exportarConteudoJSON() {
-            const jogos = JSON.parse(localStorage.getItem("jogos"));
-
-            const blob = new Blob([JSON.stringify(jogos, null, 2)], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "jogos.json";  // Nome do arquivo de download
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-
-    <script>
-        const modalJogo = new bootstrap.Modal(document.getElementById('modalJogo'));
-        const salvarAlteracoesBtn = document.getElementById('salvarAlteracoes');
-
-        function editarJogo(idJogo){
-            const jogos = JSON.parse(localStorage.getItem("jogos"));
-            let jogo = jogos[idJogo];
-            // Exibe o ID da campanha na modal (você pode substituir por outros dados)
-            document.getElementById('jogoId').textContent = idJogo;
-            document.getElementById("modalJogoLabel").innerText = "Editando conteúdo";
-            document.getElementById('nomeJogo').value = jogo.nome;
-            document.getElementById('sobreJogo').value = jogo.sobre;       
-
-            // Exibe a modal
-            modalJogo.show();               
-            // Passa o idJogo para o botão salvar
-            salvarAlteracoesBtn.onclick = function() {
-                        // Pega os dados do formulário
-                        const nome = document.getElementById('nomeJogo').value;
-                        const sobre = document.getElementById('sobreJogo').value;
-                        // Atualiza os dados do jogo no array de jogos
-                        jogo.nome = nome;
-                        jogo.sobre = sobre;
-                        //jogo.dataFim = null;
-
-                        // Atualiza o localStorage com as jogos modificadas
-                        const index = jogos.findIndex(c => c.id === idJogo);
-                        jogos[index] = jogo; // Substitui a campanha antiga pela nova
-
-                        localStorage.setItem('jogos', JSON.stringify(jogos));
-
-                        // Fecha a modal
-                        modalJogo.hide();
-
-                        // Exibe uma mensagem de sucesso ou algo similar
-                        alert("Cadastro do jogo atualizado com sucesso!");
-                        location.reload();
-                    };
-
-        }
-           
-
-        function abrirConteudoJogo(idJogo){
-            const jogos = JSON.parse(localStorage.getItem("jogos"));
-            let jogo = jogos[idJogo];
-            localStorage.setItem('jogo_selecionada', JSON.stringify(jogo));
-            window.location.href = "./detalhes.html";
-        }
-    </script>
-     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
+         </div>
+      </div>
+      <hr>
+      <script src="main.js"></script>
+      <script>     
+         if (localStorage.getItem("jsonCarregado")!='true'){
+             carregarConteudo();
+         }else{
+             
+            const existeChave = verificarChaveLocalStorage("jogosPesquisados");
+             if (existeChave) {
+                 popularHTML("jogosPesquisados");
+             } else {
+                 popularHTML("jogos");
+             }           
+         }
+         
+         function carregarConteudo() {
+             fetch("./dados/jogos.json")
+                 .then((res) => {
+                 return res.json();
+                 })
+                 .then((conteudo_json) => {
+                     // Aqui você armazena o objeto JSON como uma string no localStorage
+                     localStorage.removeItem("jogos");
+                     localStorage.setItem("jogos", JSON.stringify(conteudo_json));
+                     localStorage.setItem("jsonCarregado", 'true');            
+                     popularHTML("jogos");
+                 })
+                 .catch((erro) => {
+                     console.error("Erro ao carregar as informações:", erro);
+         
+                 });
+             }
+         
+             function popularHTML(chave){
+                 const jogos = JSON.parse(localStorage.getItem(chave));
+                 if  (jogos.length> 0){
+                     for (let i = 0; i < jogos.length; i++) {
+                         adicionarElemento(jogos[i],i);        
+                     }
+                     document.getElementsByClassName("aviso")[0].classList.add("d-none");
+         
+                 }else{
+                     document.getElementsByClassName("aviso")[0].classList.remove("d-none");
+                 }
+         
+             }
+         
+         function adicionarElemento(jogo, pos) {      
+             const container = document.getElementById("conteudo_jogos");
+             let divContainer = container.getElementsByClassName('row')[0];
+             
+             // Criar um novo elemento para o conteudo do jogo
+             const sectionJogo = document.createElement("section");
+             
+             sectionJogo.setAttribute("id", `jogo-${pos}`);            
+             sectionJogo.classList.add("col", "jogo", "item2");
+         
+             // Adicionar conteúdo
+             // <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarCampanha">Editar via Target</button>
+         
+         
+             sectionJogo.innerHTML = `
+                 <div class="card shadow-sm">
+                     <img src="${jogo.capa}" alt="foto-${jogo.nome}">
+                     <h2 class="fw-normal text-center">${jogo.nome}</h2>
+         
+                     <div class="card-body">
+                         <p class="card-text">${jogo.sobre}.</p>
+                             <label class="form-label">Avaliação</label>
+                                 <div class="classificacao" style="display: flex;flex-direction: row;justify-content: flex-start;" >
+                                     <span class="estrela ${1 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"}  ">&#9733;</span> 
+                                     <span class="estrela ${2 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
+                                     <span class="estrela ${3 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
+                                     <span class="estrela ${4 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
+                                     <span class="estrela ${5 <=parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"} ">&#9733;</span>
+                                 </div>
+                         <div class="d-flex justify-content-between align-items-center">
+                             <div class="btn-group"> 
+                                 <button type="button" class="btn btn-sm btn-outline-secondary" onclick="editarJogo(${pos})">Editar</button>
+                             </div>         
+                         </div>
+                     </div>
+                 </div>
+             `;
+             
+             // Adicionar o novo elemento ao container
+             divContainer.appendChild(sectionJogo);       
+         
+         }
+         
+         function avaliacao(event) {
+             const estrelas = document.querySelectorAll(".estrela");
+             let selecionada = false;
+             estrelas.forEach((estrela, index) => {
+             if (estrela === event.target) {
+                 selecionada = true;
+             }
+             estrela.classList.toggle("selecionada", selecionada);
+             });
+         }
+         
+             function pesquisarJogo(){
+                 const container = document.getElementById("conteudo_jogos");
+                 let divContainer = container.getElementsByClassName('row')[0];
+                 divContainer.innerHTML="";            
+         
+                 let pesquisa = document.getElementById("pesquisarJogo").value;
+                 const jogos = JSON.parse(localStorage.getItem("jogos"));
+         
+                 let resultados = jogos.filter(jogo => 
+                     jogo.nome.toLowerCase().includes(pesquisa.toLowerCase())
+                 );
+         
+                 localStorage.setItem("jogosPesquisados", JSON.stringify(resultados));
+                 
+                 //document.getElementById("col.jogo") = "";
+                 //PARAM<ANOS AQUI
+                 popularHTML("jogosPesquisados");
+             }
+         
+             function exportarConteudoJSON() {
+                 const jogos = JSON.parse(localStorage.getItem("jogos"));
+         
+                 const blob = new Blob([JSON.stringify(jogos, null, 2)], { type: "application/json" });
+                 const url = URL.createObjectURL(blob);
+                 const a = document.createElement("a");
+                 a.href = url;
+                 a.download = "jogos.json";  // Nome do arquivo de download
+                 a.click();
+                 URL.revokeObjectURL(url);
+             }
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
       <script>
-        function avisoPostCriado(tituloPost){
-          let toastLiveExample = document.getElementById('liveToast');
-          let toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
-          document.getElementById("tituloPost").innerText = tituloPost;
-          toastBootstrap.show();
-       }
-    </script>
+         const modalJogo = new bootstrap.Modal(document.getElementById('modalJogo'));
+         const salvarAlteracoesBtn = document.getElementById('salvarAlteracoes');
+         
+         function editarJogo(idJogo){
+             const jogos = JSON.parse(localStorage.getItem("jogos"));
+             let jogo = jogos[idJogo];
+             // Exibe o ID da campanha na modal (você pode substituir por outros dados)
+             document.getElementById('jogoId').textContent = idJogo;
+             document.getElementById("modalJogoLabel").innerText = "Editando conteúdo";
+             document.getElementById('nomeJogo').value = jogo.nome;
+             document.getElementById('sobreJogo').value = jogo.sobre;       
+         
+             // Exibe a modal
+             modalJogo.show();               
+             // Passa o idJogo para o botão salvar
+             salvarAlteracoesBtn.onclick = function() {
+                         // Pega os dados do formulário
+                         const nome = document.getElementById('nomeJogo').value;
+                         const sobre = document.getElementById('sobreJogo').value;
+                         // Atualiza os dados do jogo no array de jogos
+                         jogo.nome = nome;
+                         jogo.sobre = sobre;
+                         //jogo.dataFim = null;
+         
+                         // Atualiza o localStorage com as jogos modificadas
+                         const index = jogos.findIndex(c => c.id === idJogo);
+                         jogos[index] = jogo; // Substitui a campanha antiga pela nova
+         
+                         localStorage.setItem('jogos', JSON.stringify(jogos));
+         
+                         // Fecha a modal
+                         modalJogo.hide();
+         
+                         // Exibe uma mensagem de sucesso ou algo similar
+                         alert("Cadastro do jogo atualizado com sucesso!");
+                         location.reload();
+                     };
+         
+         }
+            
+         
+         function abrirConteudoJogo(idJogo){
+             const jogos = JSON.parse(localStorage.getItem("jogos"));
+             let jogo = jogos[idJogo];
+             localStorage.setItem('jogo_selecionada', JSON.stringify(jogo));
+             window.location.href = "./detalhes.html";
+         }
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
       <script>
-  document.querySelectorAll('.submenu-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const submenu = btn.nextElementSibling;
-      submenu.classList.toggle('show');
-    });
-  });
-    function toggleDarkMode() {
-  document.body.classList.toggle("dark-mode");
-
-  const icone = document.getElementById("icone-tema");
-  if (document.body.classList.contains("dark-mode")) {
-    icone.classList.remove("bi-brightness-low");
-    icone.classList.add("bi-moon-stars-fill");
-  } else {
-    icone.classList.remove("bi-moon-stars-fill");
-    icone.classList.add("bi-brightness-low");
-  }
-}
-</script>
-
-</body>
+         function avisoPostCriado(tituloPost){
+           let toastLiveExample = document.getElementById('liveToast');
+           let toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+           document.getElementById("tituloPost").innerText = tituloPost;
+           toastBootstrap.show();
+         }
+      </script>
+      <script>
+         document.querySelectorAll('.submenu-toggle').forEach(btn => {
+           btn.addEventListener('click', () => {
+             const submenu = btn.nextElementSibling;
+             submenu.classList.toggle('show');
+           });
+         });
+           function toggleDarkMode() {
+         document.body.classList.toggle("dark-mode");
+         
+         const icone = document.getElementById("icone-tema");
+         if (document.body.classList.contains("dark-mode")) {
+           icone.classList.remove("bi-brightness-low");
+           icone.classList.add("bi-moon-stars-fill");
+         } else {
+           icone.classList.remove("bi-moon-stars-fill");
+           icone.classList.add("bi-brightness-low");
+         }
+         }
+      </script>
+   </body>
 </html>
