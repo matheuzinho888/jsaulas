@@ -30,13 +30,7 @@ body {
   font-family: 'Inter', sans-serif;
   
 }
-@media screen and (max-width:600px){
-  body {
-    background-color: red;
-    color: white;  
-  }
-  
-}
+
 
 body.dark-mode {
   background-color: #1E1E2E;
