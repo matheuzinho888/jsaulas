@@ -4,5 +4,15 @@
     flex: 1;
 }
 main{
-    margin-left: 0px;
+    margin-left: 0%;
+}
+.cria{
+      margin-left: 0px;
+}
+
+.menu-desktop{
+    display: none;
+}
+.menu-mobile{
+    display: block;
 }

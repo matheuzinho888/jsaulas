@@ -11,8 +11,11 @@
   padding: 0;
   box-sizing: border-box;
 }
-main{
-      margin-left: 250px;
+.geral{
+      margin-left: 230px;
+}
+.conteudo{
+  margin-left: 0px;
 }
 .asi{
   font-family: ass;
@@ -44,7 +47,12 @@ button {
   padding: 0; 
   cursor: pointer;
 }
-
+.menu-mobile{
+    display: none;
+}
+.menu-desktop{
+    display: block;
+}
 .modi{
     color: white;
 }
