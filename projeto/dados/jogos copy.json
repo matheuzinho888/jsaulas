@@ -1,24 +1,10 @@
 [
-   {
-      "nome":"Super Mário",
-      "sobre":"Categoria A",
-      "avaliacao":5,
-      "capa":"https://www.nintendo.com/eu/media/images/10_share_images/portals_3/2x1_SuperMarioHub.jpg",
-      "comentarios":"Jogo Sensacional"
-   },
-   {
-      "nome":"Residente Evil",
-      "sobre": "Categoria B",
-      "avaliacao":4,
-      "capa":"https://www.residentevildatabase.com/wp-content/uploads/2024/06/resident-evil-jill-leon.jpg",
-      "comentarios":"Jogo Top"
-   },
-      {
-      "nome":"Resid Teste",
-      "sobre": "Categoria C",
-      "avaliacao":1,
-      "capa":"https://www.residentevildatabase.com/wp-content/uploads/2024/06/resident-evil-jill-leon.jpg",
-      "comentarios":"Jogo rUIM"      
-   }
-   
+  {
+    "nome": "The Witcher 3",
+    "sobre": "RPG de mundo aberto",
+    "avaliacao": 5,
+    "capa": "https://image.api.playstation.com/vulcan/img/rnd/202010/0220/hgDRCzGDChCyDByehIMZ0fKC.png",
+    "comentarios": "Obra-prima!",
+    "recomendado": "sim"
+  }
 ]
