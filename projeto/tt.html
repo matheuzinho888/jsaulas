@@ -36,7 +36,7 @@
                           <button class="submenu-toggle" id="sub"><i class="bi bi-folder2"></i> CATÁLOGO</button>
                           <ul class="submenu">
                                <li><a href="./criados.html" id="catal" ><i class="bi bi-search"></i> PESQUISAR</a></li>
-                              <li><a href="./recomendados.html"><i class="bi bi-bank"></i> MINHA BIBLIOTECA</a></li>
+                              <li><a href="./tt.html"><i class="bi bi-bank"></i> MINHA BIBLIOTECA</a></li>
                           </ul>
                       </li>
                       <li><a href="./sobre.html" ><i class="bi bi-info-circle"></i> SOBRE</a></li>
@@ -70,7 +70,7 @@
                           <button class="submenu-toggle" id="sub"><i class="bi bi-folder2"></i> CATÁLOGO</button>
                           <ul class="submenu">
                              <li><a href="./criados.html" id="catal" ><i class="bi bi-search"></i> PESQUISAR</a></li>
-                          <li><a href="./recomendados.html"><i class="bi bi-bank"></i> MINHA BIBLIOTECA</a></li>
+                          <li><a href="./tt.html"><i class="bi bi-bank"></i> MINHA BIBLIOTECA</a></li>
                           </ul>
                       </li>
                       <li><a href="./sobre.html" ><i class="bi bi-info-circle"></i> SOBRE</a></li>
@@ -91,12 +91,55 @@
          <main class="geral">
             <section id="minha-biblioteca" class="content-section">
             <h2 class="mb-4">Minha Biblioteca</h2>
-            <div id="biblioteca-jogos" class="row">
+            <div class="container" id="conteudo_jogos">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="alert alert-danger aviso" role="alert">
+                    VOCÊ NÃO TEM NADA NA BIBLIOTECA!
+                </div>
             </div>
+            </div>
+
             </section>
          </main>
-            <script src="carregarConteudo.js"></script>
+           <script>
+        function carregarJogosTT() {
+            let jogosTT = JSON.parse(localStorage.getItem("minha_biblioteca")) || [];
+            let container = document.getElementById("listaJogosTT");
+            let aviso = document.querySelector('.aviso');
+            container.innerHTML = '';
+
+            if (jogosTT.length === 0) {
+                aviso.style.display = '';
+            } else {
+                aviso.style.display = 'none';
+                jogosTT.forEach(jogo => {
+                    let section = document.createElement("section");
+                    section.classList.add("col", "jogo", "item2");
+                    section.innerHTML = `
+                        <div class="card shadow-sm">
+                            <img src="${jogo.capa}" alt="foto-${jogo.nome}">
+                            <h2 class="fw-normal text-center">${jogo.nome}</h2>
+                            <div class="card-body">
+                                <p class="card-text">${jogo.sobre}.</p>
+                                <label class="form-label">Avaliação</label>
+                                <div class="classificacao" style="display: flex;flex-direction: row;justify-content: flex-start;">
+                                    ${[1,2,3,4,5].map(i => `<span class="estrela ${i <= parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"}">&#9733;</span>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(section);
+                });
+            }
+        }
+        window.onload = carregarJogosTT;
+    </script>
+    
+    
+         
+      <script src="carregarConteudo.js"></script>
      <script>
+      
   window.onload = () => {
     const darkMode = localStorage.getItem("darkMode");
     if (darkMode === "enabled") {
@@ -116,10 +159,71 @@
   }
 </script>
 
+    
+
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
       <script>
-         document.querySelectorAll('.submenu-toggle').forEach(btn => {
+      
+      let minha_biblioteca2 = JSON.parse(localStorage.getItem("minha_biblioteca")) || [];
+
+            if (minha_biblioteca2.length > 0) {
+               for (let i = 0; i < minha_biblioteca2.length; i++) {
+                  adicionarElemento(minha_biblioteca2[i], i);
+               }
+               document.getElementsByClassName("aviso")[0].classList.add("d-none");
+            } else {
+               document.getElementsByClassName("aviso")[0].classList.remove("d-none");
+            }
+
+      function adicionarElemento(jogo, pos) {
+            const container = document.getElementById("conteudo_jogos");
+            let divContainer = container.getElementsByClassName('row')[0];
+
+            const sectionJogo = document.createElement("section");
+            sectionJogo.setAttribute("id", `jogo-${pos}`);
+            sectionJogo.classList.add("col", "jogo", "item2");
+
+            sectionJogo.innerHTML = `
+               <div class="card shadow-sm">                
+                  <img src="${jogo.capa}" alt="foto-${jogo.nome}">
+                  <h2 class="fw-normal text-center">${jogo.nome}</h2>
+                  <div class="card-body">
+                     <p class="card-text">${jogo.sobre}.</p>
+                     <label class="form-label">Avaliação</label>
+                     <div class="classificacao" style="display: flex;flex-direction: row;justify-content: flex-start;">
+                        ${[1,2,3,4,5].map(i => `<span class="estrela ${i <= parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"}">&#9733;</span>`).join('')}
+                     </div>
+                     <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">     
+                         ${(minha_biblioteca.filter(j=> j.id == jogo.id).length >0) ? `<button class="btn btn-sm btn-outline-primary mt-2" onclick="removerJogoBiblioteca(${jogo.id},${pos})">Remover da Biblioteca</button>` : `<button class="btn btn-sm btn-outline-primary mt-2" onclick="adicionarJogoBiblioteca(${jogo.id},${pos})">Adicionar à Biblioteca</button>`}
+                       
+                        
+                          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="editarJogo(${pos})">Editar</button>
+
+                        </div>
+                     </div>
+                  </div>
+               </div>`;
+
+            divContainer.appendChild(sectionJogo);
+         }            
+
+  function removerJogoBiblioteca(id, posicao){
+    let minha_biblioteca  = JSON.parse(localStorage.getItem("minha_biblioteca"));
+    let jogos2 = []
+    for (let i =0; i < minha_biblioteca.length; i++){
+        if(!minha_biblioteca[i].id == id){
+            jogos2.push(minha_biblioteca[i])
+        }
+    }
+
+    localStorage.setItem('minha_biblioteca', JSON.stringify(jogos2));
+    window.location.reload();             
+  }
+
+         
+document.querySelectorAll('.submenu-toggle').forEach(btn => {
            btn.addEventListener('click', () => {
              const submenu = btn.nextElementSibling;
              submenu.classList.toggle('show');
