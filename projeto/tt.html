@@ -197,10 +197,6 @@
                      <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">     
                          ${(minha_biblioteca.filter(j=> j.id == jogo.id).length >0) ? `<button class="btn btn-sm btn-outline-primary mt-2" onclick="removerJogoBiblioteca(${jogo.id},${pos})">Remover da Biblioteca</button>` : `<button class="btn btn-sm btn-outline-primary mt-2" onclick="adicionarJogoBiblioteca(${jogo.id},${pos})">Adicionar à Biblioteca</button>`}
-                       
-                        
-                          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="editarJogo(${pos})">Editar</button>
-
                         </div>
                      </div>
                   </div>
@@ -209,17 +205,17 @@
             divContainer.appendChild(sectionJogo);
          }            
 
-  function removerJogoBiblioteca(id, posicao){
-    let minha_biblioteca  = JSON.parse(localStorage.getItem("minha_biblioteca"));
-    let jogos2 = []
-    for (let i =0; i < minha_biblioteca.length; i++){
-        if(!minha_biblioteca[i].id == id){
-            jogos2.push(minha_biblioteca[i])
-        }
-    }
+  function removerJogoBiblioteca(id, posicao) {
+    let minha_biblioteca = JSON.parse(localStorage.getItem("minha_biblioteca"));
+    let jogos2 = [];
+    minha_biblioteca.forEach(jogo => {
+      if (jogo.id !== id) {
+        jogos2.push(jogo);
+      }
+    });
 
     localStorage.setItem('minha_biblioteca', JSON.stringify(jogos2));
-    window.location.reload();             
+    window.location.reload();
   }
 
          
