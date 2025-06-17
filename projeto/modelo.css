@@ -248,3 +248,8 @@ a, button, .card {
 .btn-primary:hover {
   background-color: #12023d;
 }
+.sob{
+    font-size:  x-large;
+    text-align: center;
+    width: 70%;
+}

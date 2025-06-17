@@ -14,6 +14,9 @@ main{
     display: none;
 }
 .menu-mobile{
+    display: none;
+}
+.menu-tablet{
     display: block;
 }
 body{
@@ -21,9 +24,4 @@ body{
 }
 .geral{
         margin-left: 0%;
-}
-.sob{
-    font-size:  large;
-    text-align: center;
-    width: 100%;
 }

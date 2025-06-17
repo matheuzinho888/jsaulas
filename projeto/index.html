@@ -7,16 +7,17 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="../projeto/modelo.css" />
-      <link rel="stylesheet" href="../projeto/celular.css" media="screen and (max-width: 600px)">
+      <link rel="stylesheet" href="../projeto/celular.css" media="screen and (max-width: 768px)">
+       <!-- <link rel="stylesheet" href="../projeto/tablet.css" media="screen and (max-width: 768px)"> -->
       <title>Index: Biblioteca de Jogos</title>
    </head>
-   <!-- \pedir ajuda ao gregorio,puxar os gta pelo nome gta e nao grand thef
-    adidconar a biblioteca da aba pesuqisar
-    arruamr os .gtml que nao estiver usando
+   <!-- \
+    adicionar a biblioteca da aba pesquisar
+    arruamr os .html que nao estiver usando
     ver se da para editar as coisas dentro do pesquisar
     arrumar as paginas exemplo o index principal
     VER SE O MOBILE FIRST ESTA FUNCIONNDO
-    tirar o recomendados do criar 
+    tirar o recomendados do criar/!-->
    <body>
    <div class="container-fluid">
       <div class="menu-mobile">
@@ -31,7 +32,7 @@
         </div>
         <div class="offcanvas-body" style="background-color: #232539;">
           <div>
-            <aside class="menu-vertical" style="width: 220px;">
+            <aside class="menu-vertical" style="width: 190px;">
               <a href="index.html">
               <img src="./imgs_projeto/10.png" alt="logotipo da biblioteca" class="logo"/>
               </a>
@@ -57,10 +58,7 @@
                       <i class="bi bi-brightness-low" style="color: white; font-size: 410%;"></i>
                       </button>
                   </div>
-                  <h1 style="color: white;"><i class="bi bi-instagram"></i>
-                      <i class="bi bi-twitter-x"></i>
-                      <i class="bi bi-whatsapp"></i>
-                  </h1>
+                 
               </nav>
           </aside>
           </div>
@@ -158,6 +156,10 @@
              submenu.classList.toggle('show');
            });
          });
+
+        if( !localStorage.getItem("minha_biblioteca")){
+          localStorage.setItem("minha_biblioteca", JSON.stringify([]));
+        }
       </script>
    </body>
 </html>

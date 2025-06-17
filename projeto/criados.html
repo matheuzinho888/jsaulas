@@ -10,14 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../projeto/modelo.css" />
-    <link rel="stylesheet" href="../projeto/celular.css" media="screen and (max-width: 600px)">
-    <style>
-        main{
-         margin-left: 220px;
-         }
-    </style>
+    <link rel="stylesheet" href="../projeto/celular.css" media="screen and (max-width: 768px)">
 </head>
-
 <body>
     <div class="container-fluid">
         <div class="menu-mobile">
@@ -58,10 +52,7 @@
                                         <i class="bi bi-brightness-low" style="color: white; font-size: 410%;"></i>
                                     </button>
                                 </div>
-                                <h1 style="color: white;"><i class="bi bi-instagram"></i>
-                      <i class="bi bi-twitter-x"></i>
-                      <i class="bi bi-whatsapp"></i>
-                  </h1>
+                               
                             </nav>
                         </aside>
                     </div>
@@ -226,7 +217,8 @@
             }
          }
 
-              function adicionarElemento(jogo, pos) {
+        function adicionarElemento(jogo, pos) {
+            let minha_biblioteca  = JSON.parse(localStorage.getItem("minha_biblioteca"));
             const container = document.getElementById("conteudo_jogos");
             let divContainer = container.getElementsByClassName('row')[0];
 
@@ -245,9 +237,12 @@
                         ${[1,2,3,4,5].map(i => `<span class="estrela ${i <= parseInt(jogo.avaliacao) ? "selecionada" : "naoselecionada"}">&#9733;</span>`).join('')}
                      </div>
                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                           <button class="btn btn-sm btn-outline-primary mt-2" onclick="adicionarJogoBiblioteca('Título do Jogo', 'URL da Imagem')">Adicionar à Biblioteca</button>
-                           <button type="button" class="btn btn-sm btn-outline-secondary" onclick="editarJogo(${pos})">Editar</button>
+                        <div class="btn-group">     
+                         ${(minha_biblioteca.filter(j=> j.id == jogo.id).length >0) ? `<button class="btn btn-sm btn-outline-primary mt-2" onclick="removerJogoBiblioteca(${jogo.id},${pos})">Remover da Biblioteca</button>` : `<button class="btn btn-sm btn-outline-primary mt-2" onclick="adicionarJogoBiblioteca(${jogo.id},${pos})">Adicionar à Biblioteca</button>`}
+                       
+                        
+                          <button type="button" class="btn btn-sm btn-outline-secondary" onclick="editarJogo(${pos})">Editar</button>
+
                         </div>
                      </div>
                   </div>
@@ -298,6 +293,41 @@
       localStorage.setItem("darkMode", "disabled");
     }
   }
+  function adicionarJogoBiblioteca(id, posicao){
+    const jogos = JSON.parse(localStorage.getItem("jogos"));
+    let jogo = (jogos.filter(j => j.id==id))[0];
+    console.log(jogo)
+    // let jogo = jogos[id];
+    
+    if( !localStorage.getItem("minha_biblioteca")){
+        localStorage.setItem("minha_biblioteca", JSON.stringify([]));
+    }
+    let minha_biblioteca  = JSON.parse(localStorage.getItem("minha_biblioteca"));
+
+    minha_biblioteca.push(jogo);
+
+    localStorage.setItem('minha_biblioteca', JSON.stringify(minha_biblioteca));
+    window.location.reload();    
+
+
+  }
+
+  function removerJogoBiblioteca(id, posicao){
+    let minha_biblioteca  = JSON.parse(localStorage.getItem("minha_biblioteca"));
+    let jogos2 = []
+    for (let i =0; i < minha_biblioteca.length; i++){
+        if(!minha_biblioteca[i].id == id){
+            jogos2.push(minha_biblioteca[i])
+        }
+    }
+
+    localStorage.setItem('minha_biblioteca', JSON.stringify(jogos2));
+    window.location.reload();    
+
+
+  }  
+
+
     </script>
        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
